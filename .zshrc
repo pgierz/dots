@@ -9,6 +9,8 @@ export ZSH="/Users/pgierz/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode root_indicator background_jobs history time)
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -64,7 +66,9 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 plugins=(
   git
   vi-mode
-)
+  k
+  colored-man-pages
+  )
 
 source $ZSH/oh-my-zsh.sh
 

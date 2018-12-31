@@ -39,16 +39,19 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 " Some good colors (maybe)
+Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 Plug 'koalaman/shellcheck'
-Plug 'vim-syntastic/syntastic'
+Plug 'szymonmaszke/vimpyter'
 Plug 'tomtom/checksyntax_vim'
+Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-Plug 'szymonmaszke/vimpyter' "vim-plug
+Plug 'vim-syntastic/syntastic'
 call plug#end()
+
+" Use :PlugInstall to install your plugins 
+
 
 colorscheme nord
 let g:airline_powerline_fonts = 1
