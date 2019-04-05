@@ -113,7 +113,7 @@ export PATH="/usr/local/opt/python36/bin:$PATH"
 # vcs)
 function update_dotfiles {
         if [ -f ${HOME}/.deployed_machine ]; then
-                config pull 2>&1 ${HOME}/.dotfile_git_log
+                config pull &> ${HOME}/.dotfile_git_log
         fi
 }
 
