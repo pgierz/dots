@@ -24,6 +24,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
@@ -33,8 +34,12 @@ Plug 'koalaman/shellcheck'
 Plug 'szymonmaszke/vimpyter'
 Plug 'tomtom/checksyntax_vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
+Plug 'universal-ctags/ctags'
+
 call plug#end()
 
 colorscheme nord
@@ -43,6 +48,7 @@ set number relativenumber
 syntax on
 set expandtab
 set smarttab
+set autoindent
 
 " Set the cursor to be different depending on the mode:
 let &t_SI = "\<Esc>[6 q"

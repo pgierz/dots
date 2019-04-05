@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/miniconda3/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/pgierz/.oh-my-zsh"
@@ -53,7 +53,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode root_indicator background_job
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -74,30 +74,53 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+#if [[ -n $SSH_CONNECTION ]]; then
+#  export EDITOR='vim'
+#else
+#  export EDITOR='mvim'
+#fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias config='/usr/bin/git --git-dir=/Users/pgierz/.cfg/ --work-tree=/Users/pgierz'
+alias git="hub"
+alias config='git --git-dir=/Users/pgierz/.cfg/ --work-tree=/Users/pgierz'
+alias v='vim'
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+# get different python versions:
+export PATH="/usr/local/opt/python36/bin:$PATH"
+
+# Since I want all the dotfiles everywhere to be the same; this function is in
+# the .zshrc file and not in custom (since the custom folder isn't commited to
+# vcs)
+function update_dotfiles {
+        if [ -f ${HOME}/.deployed_machine ]; then
+                if [ ! -f ${HOME}/.dotfiles_up_to_date_today ]; then
+                        touch ${HOME}/.dotfiles_up_to_date_today
+                        config pull
+                fi
+        else
+                echo "This is not a deployed machine; dotfiles are not going to be updated..."
+        fi
+}
+
+update_dotfiles
+# - end
