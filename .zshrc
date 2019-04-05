@@ -113,12 +113,7 @@ export PATH="/usr/local/opt/python36/bin:$PATH"
 # vcs)
 function update_dotfiles {
         if [ -f ${HOME}/.deployed_machine ]; then
-                if [ ! -f ${HOME}/.dotfiles_up_to_date_today ]; then
-                        touch ${HOME}/.dotfiles_up_to_date_today
-                        config pull
-                fi
-        else
-                echo "This is not a deployed machine; dotfiles are not going to be updated..."
+                config pull 2>&1 ${HOME}/.dotfile_git_log
         fi
 }
 
