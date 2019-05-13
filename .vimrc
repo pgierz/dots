@@ -27,20 +27,30 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+
+" To reorder this alphabetically after adding a plugin, you can use the
+" vim-ism:
+"
+" V (enter visual line mode)
+" } (Move to the end of the paragraph)
+" : sort (self explanatory, ya nerd)
+
+
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
 Plug 'arcticicestudio/nord-vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'koalaman/shellcheck'
 Plug 'szymonmaszke/vimpyter'
 Plug 'tomtom/checksyntax_vim'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'universal-ctags/ctags'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
-Plug 'universal-ctags/ctags'
-Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 "colorscheme nord
