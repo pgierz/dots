@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/miniconda3/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/anaconda3/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/pgierz/.oh-my-zsh"
@@ -10,8 +10,10 @@ export ZSH="/Users/pgierz/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_COLOR_SCHEME='light'
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode root_indicator background_jobs history time)
+POWERLEVEL9K_COLOR_SCHEME='dark'
+source ${HOME}/.local/share/fonts/i_dev.sh
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode root_indicator anaconda background_jobs history time )
+POWERLEVEL9K_PYTHON_ICON="$i_dev_python"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -120,3 +122,25 @@ function update_dotfiles {
 
 update_dotfiles
 # - end
+
+# added by travis gem
+[ -f /Users/pgierz/.travis/travis.sh ] && source /Users/pgierz/.travis/travis.sh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/pgierz/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/pgierz/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/pgierz/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/pgierz/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Exa is cooler than ls, but only if you got it:
+which exa && alias ls='exa'
+

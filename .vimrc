@@ -40,8 +40,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'arcticicestudio/nord-vim'
+Plug 'jceb/vim-orgmode'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'koalaman/shellcheck'
+Plug 'python/black'
 Plug 'szymonmaszke/vimpyter'
 Plug 'tomtom/checksyntax_vim'
 Plug 'tpope/vim-fugitive'
@@ -53,11 +55,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
 call plug#end()
 
+syntax on
+
 "colorscheme nord
 colorscheme solarized
 let g:airline_powerline_fonts = 1
 set number relativenumber
-syntax on
 set expandtab
 set smarttab
 set autoindent
@@ -66,7 +69,7 @@ set autoindent
 let &t_SI = "\<Esc>[6 q"
 let &t_EI = "\<Esc>[2 q"
 
-set background=light
+set background=dark
 let g:airline_theme='solarized'
 
 
@@ -76,3 +79,12 @@ set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h16
 
 " Fix backspace
 set backspace=indent,eol,start
+
+" Always kill all whitespace on save for py files
+autocmd BufWritePre *.py execute ':Black'
+
+" Settings for Syntastic
+let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
