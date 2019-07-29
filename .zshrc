@@ -11,7 +11,9 @@ export ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_COLOR_SCHEME='dark'
-source ${HOME}/.local/share/fonts/i_dev.sh
+if [ -f ${HOME}/.local/share/fonts/i_dev.sh ]; then
+        source ${HOME}/.local/share/fonts/i_dev.sh
+fi
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode root_indicator anaconda background_jobs history time )
 POWERLEVEL9K_PYTHON_ICON="$i_dev_python"
 # Set list of themes to pick from when loading at random
@@ -69,7 +71,6 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(
   git
   vi-mode
-  k
   colored-man-pages
   )
 
@@ -124,23 +125,19 @@ update_dotfiles
 # - end
 
 # added by travis gem
-[ -f /Users/pgierz/.travis/travis.sh ] && source /Users/pgierz/.travis/travis.sh
+[ -f ${HOME}/.travis/travis.sh ] && source ${HOME}/.travis/travis.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/pgierz/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('${HOME}/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/pgierz/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/pgierz/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "${HOME}/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "${HOME}/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/pgierz/anaconda3/bin:$PATH"
+        export PATH="${HOME}/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-# Exa is cooler than ls, but only if you got it:
-which exa && alias ls='exa'
-
