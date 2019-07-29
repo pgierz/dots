@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$HOME/anaconda3/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/pgierz/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -104,7 +104,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias git="hub"
-alias config='git --git-dir=/Users/pgierz/.cfg/ --work-tree=/Users/pgierz'
+alias config="git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"
 alias v='vim'
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8

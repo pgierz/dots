@@ -35,7 +35,6 @@ call plug#begin('~/.vim/plugged')
 " } (Move to the end of the paragraph)
 " : sort (self explanatory, ya nerd)
 
-
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
@@ -48,6 +47,7 @@ Plug 'szymonmaszke/vimpyter'
 Plug 'tomtom/checksyntax_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'universal-ctags/ctags'
 Plug 'vim-airline/vim-airline'
