@@ -8,9 +8,6 @@ export ZSH="${HOME}/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_COLOR_SCHEME='dark'
 # Gotham Shell
 GOTHAM_SHELL="$HOME/.config/gotham/gotham.sh"
 [[ -s $GOTHAM_SHELL ]] && source $GOTHAM_SHELL
@@ -20,9 +17,6 @@ if [ -f ${HOME}/.local/share/fonts/i_dev.sh ]; then
 fi
 
 ZSH_THEME="spaceship"
-SPACESHIP_CONDA_SYMBOL="🐍  "
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode root_indicator anaconda background_jobs history time )
-POWERLEVEL9K_PYTHON_ICON="$i_dev_python"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
