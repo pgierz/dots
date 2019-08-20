@@ -39,6 +39,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'arcticicestudio/nord-vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'jceb/vim-orgmode'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'koalaman/shellcheck'
@@ -53,12 +54,13 @@ Plug 'universal-ctags/ctags'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
+Plug 'whatyouhide/vim-gotham'
 call plug#end()
 
 syntax on
 
 "colorscheme nord
-colorscheme solarized
+colorscheme gotham
 let g:airline_powerline_fonts = 1
 set number relativenumber
 set expandtab
@@ -88,3 +90,8 @@ let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
