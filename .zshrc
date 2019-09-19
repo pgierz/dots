@@ -20,7 +20,7 @@ if [ -f ${HOME}/.local/share/fonts/i_dev.sh ]; then
 fi
 
 ZSH_THEME="spaceship"
-SPACESHIP_CONDA_SYMBOL="🐍  "
+#SPACESHIP_CONDA_SYMBOL="🐍  "
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode root_indicator anaconda background_jobs history time )
 POWERLEVEL9K_PYTHON_ICON="$i_dev_python"
 # Set list of themes to pick from when loading at random
@@ -78,7 +78,10 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(
   git
   vi-mode
+  colorize
+  common-aliases
   colored-man-pages
+  python
   )
 
 source $ZSH/oh-my-zsh.sh
