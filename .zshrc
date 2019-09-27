@@ -84,6 +84,15 @@ export MANPATH="/usr/local/man:$MANPATH"
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+# Use vim keys when autocompleting
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+# Not sure about the last one...
+
 # Preferred editor for local and remote sessions
 #if [[ -n $SSH_CONNECTION ]]; then
 #  export EDITOR='vim'
@@ -131,14 +140,14 @@ update_dotfiles
 CURRENT_PROMPT=$PS1
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/sw/rhel6-x64/conda/anaconda3-bleeding_edge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/pgierz/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/sw/rhel6-x64/conda/anaconda3-bleeding_edge/etc/profile.d/conda.sh" ]; then
-        . "/sw/rhel6-x64/conda/anaconda3-bleeding_edge/etc/profile.d/conda.sh"
+    if [ -f "/Users/pgierz/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/pgierz/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/sw/rhel6-x64/conda/anaconda3-bleeding_edge/bin:$PATH"
+        export PATH="/Users/pgierz/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
