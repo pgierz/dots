@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/anaconda3/bin:$PATH
+#export PATH=$HOME/bin:/usr/local/bin:$HOME/anaconda3/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
@@ -17,7 +17,8 @@ if [ -f ${HOME}/.local/share/fonts/i_dev.sh ]; then
 fi
 
 ZSH_THEME="spaceship"
-#SPACESHIP_CONDA_SYMBOL="🐍  "
+# TODO: Get this around a thing if conda env isn't base
+SPACESHIP_CONDA_SYMBOL="🐍  "
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode root_indicator anaconda background_jobs history time )
 POWERLEVEL9K_PYTHON_ICON="$i_dev_python"
 # Set list of themes to pick from when loading at random
@@ -77,14 +78,20 @@ plugins=(
   vi-mode
   colorize
   common-aliases
+  conda-zsh-completion
   colored-man-pages
   python
+  docker
+  docker-compose
   )
+
+
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+autoload -U compinit && compinit
 export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -121,12 +128,13 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias git="hub"
+#alias git="lab"
 alias config="git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"
 alias v='vim'
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 # get different python versions:
-export PATH="/usr/local/opt/python36/bin:$PATH"
+#export PATH="/usr/local/opt/python36/bin:$PATH"
 
 # Since I want all the dotfiles everywhere to be the same; this function is in
 # the .zshrc file and not in custom (since the custom folder isn't commited to
@@ -159,3 +167,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 PS1=$CURRENT_PROMPT
+
+
+svgpdf() {
+    "/Applications/Inkscape.app/Contents/Resources/bin/Inkscape" "$PWD"/$1 -A="$PWD"/$1.pdf --without-gui
+}
+

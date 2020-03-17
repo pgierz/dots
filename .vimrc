@@ -45,6 +45,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'koalaman/shellcheck'
 Plug 'python/black'
 Plug 'szymonmaszke/vimpyter'
+Plug 'tell-k/vim-autoflake'
 Plug 'tomtom/checksyntax_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -59,8 +60,9 @@ call plug#end()
 
 syntax on
 
-"colorscheme nord
-colorscheme gotham
+colorscheme nord
+"colorscheme gotham
+"colorscheme solarized
 let g:airline_powerline_fonts = 1
 set number relativenumber
 set expandtab
@@ -71,7 +73,7 @@ set autoindent
 let &t_SI = "\<Esc>[6 q"
 let &t_EI = "\<Esc>[2 q"
 
-set background=dark
+set background=light
 let g:airline_theme='solarized'
 
 
