@@ -1,0 +1,164 @@
+{
+ "tags": {
+  "proxy-app": [
+   "picsarlite",
+   "snbone",
+   "exampm",
+   "miniamr",
+   "candle-benchmarks",
+   "minimd",
+   "kripke",
+   "comd",
+   "laghos",
+   "branson",
+   "snap",
+   "nut",
+   "minismac2d",
+   "aspa",
+   "ecp-proxy-apps",
+   "sw4lite",
+   "clamr",
+   "hpgmg",
+   "cohmm",
+   "macsio",
+   "cosp2",
+   "cloverleaf3d",
+   "amg",
+   "lulesh",
+   "ember",
+   "amg2013",
+   "minife",
+   "exasp2",
+   "pennant",
+   "swfft",
+   "miniaero",
+   "ebms",
+   "examinimd",
+   "hacckernels",
+   "minixyce",
+   "nekbone",
+   "simplemoc",
+   "xsbench",
+   "lcals",
+   "tealeaf",
+   "chatterbug",
+   "remhos",
+   "quicksilver",
+   "minitri",
+   "miniqmc",
+   "thornado-mini",
+   "minivite",
+   "hpccg",
+   "pathfinder",
+   "cloverleaf",
+   "rsbench",
+   "coevp",
+   "minighost"
+  ],
+  "ecp-proxy-app": [
+   "picsarlite",
+   "miniamr",
+   "candle-benchmarks",
+   "laghos",
+   "ecp-proxy-apps",
+   "sw4lite",
+   "macsio",
+   "amg",
+   "ember",
+   "minife",
+   "swfft",
+   "examinimd",
+   "nekbone",
+   "xsbench",
+   "minitri",
+   "miniqmc",
+   "thornado-mini",
+   "minivite"
+  ],
+  "mcmc": [
+   "jags"
+  ],
+  "gibbs sampler": [
+   "jags"
+  ],
+  "ecp": [
+   "nalu-wind",
+   "lammps",
+   "kvtree",
+   "nektools",
+   "er",
+   "nek5000",
+   "filo",
+   "rankstr",
+   "shuffile",
+   "parsplice",
+   "latte",
+   "veloc",
+   "qmcpack",
+   "nwchem",
+   "spath",
+   "redset",
+   "axl",
+   "chombo"
+  ],
+  "ecp-apps": [
+   "nalu-wind",
+   "lammps",
+   "nektools",
+   "nek5000",
+   "parsplice",
+   "latte",
+   "qmcpack",
+   "nwchem",
+   "chombo"
+  ],
+  "fem": [
+   "mfem"
+  ],
+  "finite elements": [
+   "mfem"
+  ],
+  "high-order": [
+   "mfem"
+  ],
+  "amr": [
+   "mfem"
+  ],
+  "hpc": [
+   "mfem",
+   "nektools",
+   "nek5000",
+   "julea"
+  ],
+  "cfd": [
+   "nektools",
+   "nek5000"
+  ],
+  "flow": [
+   "nektools",
+   "nek5000"
+  ],
+  "solver": [
+   "nektools",
+   "nek5000"
+  ],
+  "navier-stokes": [
+   "nektools",
+   "nek5000"
+  ],
+  "spectral-elements": [
+   "nektools",
+   "nek5000"
+  ],
+  "fluid": [
+   "nektools",
+   "nek5000"
+  ],
+  "i/o": [
+   "julea"
+  ],
+  "storage": [
+   "julea"
+  ]
+ }
+}

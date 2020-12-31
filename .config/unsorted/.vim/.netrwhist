@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/mnt/lustre01/pf/a/a270077/PalModII/SCOPE/For_Christian/p001'
+let g:netrw_dirhist_2='/mnt/lustre01/pf/a/a270077/PalModII/SCOPE/For_Christian'
+let g:netrw_dirhist_3='/mnt/lustre01/pf/a/a270077/Code/esm_tools_release/esm_tools/configs/other_software'
+let g:netrw_dirhist_4='/mnt/lustre01/pf/a/a270077/Code/esm_tools_release/esm_tools/configs/other_software/batch_system'
+let g:netrw_dirhist_5='/mnt/lustre02/work/ba0989/a270077/PalModII/phase_space_analysis/test_run_configs'
+let g:netrw_dirhist_6='/mnt/lustre01/pf/a/a270077/.config/oh-my-zsh/plugins'

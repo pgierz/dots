@@ -1,0 +1,22 @@
+echam:
+  archive:
+    date_format: '%Y%m'
+    frequency: 1M
+fesom:
+  archive:
+    date_format: '%Y%m'
+    frequency: 1Y
+general:
+  database_file: /pf/a/a270077/.local/share/esm_archiving/esm_archiving.db
+hdmodel:
+  archive:
+    date_format: '%Y%m'
+    frequency: 1M
+jsbach:
+  archive:
+    date_format: '%Y%m'
+    frequency: 1M
+oasis3mct:
+  archive:
+    date_format: '%Y%m'
+    frequency: 1M

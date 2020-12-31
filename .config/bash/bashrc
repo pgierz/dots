@@ -1,0 +1,8 @@
+LANG=en_US.utf-8
+LC_ALL=en_US.utf-8
+
+export PS1="\u@\h:\w\$ "
+
+export PATH=${HOME}/.local/bin:${PATH}
+eval "$(starship init bash)"
+source "/pf/a/a270077/.local/share/cargo/env"

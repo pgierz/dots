@@ -1,0 +1,13 @@
+{
+  "cookiecutter": {
+    "project_name": "model_acid_tests",
+    "project_short_description": "Code for generating runscripts for Uta's model acid tests",
+    "prefix": "AWI",
+    "author": "Paul Gierz",
+    "author_email": "pgierz@awi.de",
+    "version": "0.1.0",
+    "year": "2020",
+    "license": "GPL",
+    "_template": "https://github.com/rgreinho/python-cookiecutter"
+  }
+}

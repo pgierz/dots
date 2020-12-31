@@ -1,0 +1,19 @@
+{
+  "cookiecutter": {
+    "full_name": "Paul Gierz",
+    "email": "pgierz@awi.de",
+    "github_username": "pgierz",
+    "project_name": "Model Acid Tests",
+    "project_slug": "model_acid_tests",
+    "project_short_description": "Code to automatically generate, execute, and evalute standard tests for ESM Experiments",
+    "pypi_username": "pgierz",
+    "version": "0.1.0",
+    "use_pytest": "n",
+    "use_pypi_deployment_with_travis": "y",
+    "add_pyup_badge": "y",
+    "command_line_interface": "Click",
+    "create_author_file": "n",
+    "open_source_license": "GNU General Public License v3",
+    "_template": "https://github.com/audreyr/cookiecutter-pypackage.git"
+  }
+}

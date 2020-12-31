@@ -1,0 +1,23 @@
+import netrc
+netrc = netrc.netrc()
+netrc
+netrc.hosts
+netrc.hosts.get("spaces.awi.de")
+netrc?
+?netrc
+netrc.__doc__
+del netrc
+netrc
+import netrc
+netrc.__doc__
+netrc.netrc.__doc__
+n = netrc.netrc()
+n.hosts.__doc__
+print(n.hosts.__doc__)
+from model_acid_tests.core import read_table
+df = read_table(force=True)
+df
+df.keys()
+from model_acid_tests.core import read_table
+df = read_table(force=True)
+df
