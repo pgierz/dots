@@ -89,6 +89,14 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Use vim keys, because, really...? Shouldn't this be default?
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+# FIXME(PG): Not sure about what this one next does...?
+bindkey -v '^?' backward-delete-char
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
