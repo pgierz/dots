@@ -1,0 +1,1 @@
+/pf/a/a270077/.config/oh-my-zsh//custom/themes/spaceship-prompt/spaceship.zsh-theme

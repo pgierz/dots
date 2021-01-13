@@ -1,0 +1,706 @@
+echo $PATH
+which python3
+cd /work/ba1066/a270077/tmp/
+ls
+cd ../
+ls
+which pre-commit
+cd tmp
+ls
+vim ~/.bash_profile 
+vim ~/.bashrc 
+cd ~/
+ls
+ls -al
+ls -a
+ls .config
+mkdir old_dotfiles
+mv .bash* old_dotfiles
+ls
+ls -a
+ls .cfg/
+echo $PATH
+ls -a
+ls -a .profile 
+vim .profile 
+rm -rf .profile
+exit
+echo $PATH
+which python3
+which python
+ls -al
+ls -a
+ls old_dotfiles/
+ls -a old_dotfiles/
+ls -al .modules/
+ls -a
+ls -al .gemrc 
+rm -rf .gemrc
+rm -rf .gitignore
+cat .gitmodules 
+rm -rf .gitmodules 
+ls
+ls -al
+ls -l
+ls -a
+rm -r.irbrc .atom
+rm -r .irbrc .atom
+rm -r .liquidpromptrc  
+rm -r .emacs.d  
+rm -fr .emacs.d  
+cat .dir_colors 
+ls
+ls -a
+cat .common_simulation_paths 
+rm .common_simulation_paths
+rm -r .cfg
+rm -fr .cfg
+ls
+ls -al
+ls -a
+rm echam.yaml 
+rm exp_walk.dat
+rm fesom-1.4+echam-6.3.05p2-concurrent_radiation.yaml
+ls
+ls -a
+cat .install_calnoro.sh 
+rm .install_calnoro.sh 
+rm jsbach_init1.dat jsbach_init2.dat oasis3-mct.yaml  mistral.yaml  .mesh_levels_size.dat.swp make_exp_walk.py 
+rm .zcompdump*
+ls -a
+ls .config-backup/
+ls  -a .config-backup/
+rm -rf .config-backup
+ls
+ls -a
+ls .modules/
+rm -r .modules
+rm -fr .modules &
+ls -a
+rm fout fout fout_cat.nc 
+rm fout fout2 fout_cat.nc 
+ls
+ls -a
+rm mat*nc
+ls
+ls -a
+rm namcouple
+ls .pki/
+ls .pki/nssdb/
+tree .pki/nssdb/
+tree .pki
+rm -r .pki
+ls -a
+rm -r .spacemacs
+ls .bim
+ls .bim/plugged/
+ls .bim/plugged/stellarized/
+rm -r  .bim #/plugged/stellarized/
+rm -fr .bim
+ls -a
+ls
+rm -r dask-worker-space/
+ls
+ls conda-envs/
+rm -r conda-envs
+bg
+ls
+rm diff.nc
+mkdir Jupyter_Notebooks
+mv *ipynb Jupyter_Notebooks
+ls
+rm LIG-T*log
+ls
+ls Models/
+rm -fr Models $
+rm -fr Models &
+ls
+jobs
+bg
+jobs
+fg
+rm -rf conda-envs &
+ls
+rm out.png 
+ls
+ls -al
+ls -a
+rm f-r .yarn
+rm -fr .yarn
+rm -r .tramp_history
+ls
+ls -a
+tree .allinea/
+rm -r .allinea
+ls
+ls -a
+ls
+rm test.nc 
+rm PI-CTRL6_echam6_echam_195401.codes 
+mv T63CORE2_cellarea.nc reference_stuff/
+ls
+ls -al
+ls -a
+rm -fr .npm .mc .meld
+ls -al
+ls -a
+ls .local/
+ls .thumbnails/
+ls .thumbnails/normal/
+rm -r  .thumbnails
+ls
+ls -a
+cat .swiftenv 
+rm -r .swiftenv
+ls
+ls -a
+zsh -l
+ls
+vim .zshrc 
+zsh -l
+ls
+ls -al
+ls -a
+ls .w3m
+ls .w3m/history 
+rm -r .w3m # .w3m/history 
+ls
+ls -a
+ls .visidata/
+ls .visidata//cache/
+rm -r .visidata
+ls
+ls -a
+rm -r .zcompdump
+ls -l
+ls -a
+ls -a .dbus/
+tree .db
+tree .dbus/
+rm -r .dbus
+ls
+ls -a
+ls -a .pylint.d/
+rm -r .pylint.d
+ls -a
+zsh -l
+ls -a
+rm -r .oh-my-zsh .zsh*
+rm -fr .oh-my-zsh .zsh*
+ls
+zsh -l
+exit
+which python3
+ls
+ls -a old_dotfiles/
+cat old_dotfiles/.bash_profile 
+mv ~/old_dotfiles/.bash_profile 
+mv ~/old_dotfiles/.bash_profile .
+exit
+ls
+ls ~/.local/bin/
+ls -al .local/
+which vim
+vim
+mv .local old_dotlocal
+ls
+ls -a
+ls -l
+ls -al
+rm .dir_colors 
+ls
+exit
+ls
+ls -a
+rm -r .esmtoolsrc_ci .esmtoolsrc_ci_backup  .esmtoolsrc-backup-before-aprita .from_shinck 
+bg
+ls
+ls -a
+ls -a .bin/
+rm -fr .esmtoolsrc_ci .esmtoolsrc_ci_backup  .esmtoolsrc-backup-before-aprita .from_shinck  &
+ls .bin/
+rm -fr .bin
+bg
+jobs
+fg
+jobs
+ls
+which pip
+module load python3
+which pip
+pip install --local pre-commit
+pip install pre-commit
+ls
+vim /pf/a/a270077/.bashrc 
+cd /work/ba1055
+cd /work/ba1066/a270077/
+ls
+which pipenv
+pip install pipenv
+module load python3
+pip install pipenv
+ls
+cd fesom-freezing-tests/
+git status
+git --version
+module list
+which pre-commit
+pre-commit run --all-files
+python --version
+vim .pre-commit-config.yaml 
+pre-commit run --all-files
+ls
+cat .pre-commit-config.yaml 
+vim .pre-commit-config.yaml 
+pre-commit run --all-files
+ls
+vim pyproject.toml 
+pre-commit run --all-files
+pre-commit migrate-config
+git status
+git diff
+ls
+git status
+pre-commit run --all-files
+vim pyproject.toml 
+flake8 --help
+vim setup.cfg 
+ls
+pre-commit run --all-files
+pre-commit --help
+pre-commit install
+pre-commit install --install-hooks
+pre-commit run --all-files
+git status
+pip install commitizen
+cz c
+ls
+git status
+git add .
+cz c
+glol
+git lol
+git log
+cz changelog
+cat CHANGELOG.md 
+ls
+ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+exit
+zsh -l
+ls
+cd /work/ab1066
+ls
+cd /work/ba1066/a270077/
+ls
+cd fesom-freezing-tests/
+ls
+git status
+git diff
+git add CHANGELOG.md
+cz c
+which python3
+module load python3
+cz c
+git push
+ls
+pipenv install -e .
+which python
+vim Pipfile
+pipenv install -e .
+pipenv sync
+zsh --version
+module load zsh
+cd
+cd tmp
+mkdir tmp
+cd tmp
+wget https://sourceforge.net/projects/zsh/files/zsh/5.8/zsh-5.8.tar.xz/download
+ls -al
+ls
+tar -xvJf download
+ls
+rm -rf *
+ls
+rm -rf zsh-5.8 &
+wget https://sourceforge.net/projects/zsh/files/latest/download
+tar -xvJf download
+ls
+rm -rf *
+bg
+ls
+wget https://sourceforge.net/projects/zsh/files/zsh/5.8/zsh-5.8.tar.xz/download
+tar -xvJf download
+cd zsh-5.8/
+ls
+./configure --prefix=${HOME}/.local
+make && make install
+which zsh
+echo $PATH
+vim /pf/a/a270077/.bashrc 
+exit
+zsh -l
+module load python3
+pip install scope_coupler
+scope
+cdw
+zsh -l
+zsh -l
+pip install git+https://github.com/esm-tools/esm_utilities
+module load python3
+pip install git+https://github.com/esm-tools/esm_utilities
+esm_utilities logfile-stats
+zsh -l
+squeue -u $USER
+sq
+zsh -l
+sq
+zsh -l
+sq
+zsh -l
+sq
+zsh -l
+sq
+zsh -l
+sq
+zsh -l
+ls
+man zsh
+man bash
+ls -a
+ln -s .config/zsh/zshrc ${HOME}/.zshrc
+zsh -l
+sq
+zsh -l
+cd /
+ls
+cd pool/
+ls
+cd data/
+ls
+cd ECHAM6
+ls
+cd solar_irradiance
+ls
+cd ..
+ls
+cd T127/
+ls
+cd aero
+ls
+cd ../aero2/
+ls
+find . -iname "1849"
+find . -iname "*1849*"
+readlink -f ./T127_aeropt_kinne_sw_b14_fin_1849.nc
+zsh -l
+squeue -u $USER
+sq
+zsh -l
+squeue -u a270077
+zsh -l
+squeue -u $USER
+zsh -l
+zsh -l
+module avail
+module load arm-forge
+sq
+zsh -l
+sq
+squeue -u a270077
+zsh -l
+vim /pf/a/a270064/work/esm-experiments/lig_cmip/work/namelist.echam
+exit
+ls
+zsh -l
+cd esm-master/esm-runscripts/functions/iterative_coupling/
+pwd
+ls
+cd /pf/a/a270064/work/AWIESM2.1-EXP/exp9
+ls
+vim scripts/
+zsh -l
+cd /work/ab0246/a270073/awicm-CMIP6/restart_from_hu_oceanonly/
+ls
+cd config/echam/
+ls
+less namelist.echam 
+less /work/ab0246/a270073/awicm-test/CMIP6/CMIP_PMIP/dynveg_true/historical/config/echam/namelist.echam
+finger a270062
+ls
+cd PalModII/
+ls
+cd SCOPE/
+ls
+mkdir For_Christian
+cp scope/scope/scope_config.yaml For_Christian/
+ls scope/scope/scope_config.yaml 
+ls -al scope/
+ls scope/examples/scope_config.yaml 
+cp scope/examples/scope_config.yaml For_Christian/
+cd For_Christian/
+ls
+cp ../test_data/scope.ecearth3_pism.yaml .
+vim -O scope.ecearth3_pism.yaml scope_config.yaml 
+scope
+scope preprocess --help
+scope preprocess scope.ecearth3_pism.yaml ifs
+rm scope_config.yaml 
+vim scope.ecearth3_pism.yaml 
+rm scope_config.yaml 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim scope.ecearth3_pism.yaml 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim scope.ecearth3_pism.yaml 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim scope.ecearth3_pism.yaml 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim scope.ecearth3_pism.yaml 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim scope.ecearth3_pism.yaml 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim scope.ecearth3_pism.yaml 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim scope.ecearth3_pism.yaml 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim scope.ecearth3_pism.yaml 
+fg
+vim scope.ecearth3_pism.yaml 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /pf/a/a270077/.local/lib/python3.7/site-packages/scope/cli.py
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /pf/a/a270077/.local/lib/python3.7/site-packages/scope/cli.py
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /pf/a/a270077/.local/lib/python3.7/site-packages/scope/scope.py
+fg
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /pf/a/a270077/.local/lib/python3.7/site-packages/scope/scope.py
+cd ../scope/
+pip install --user -e ,.
+pip install --user -e .
+module load anaconda3/bleeding_edge 
+module list
+module load python3
+pip install --user -e .
+cd ../For_Christian/
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/cli.py
+fg
+scope preprocess scope.ecearth3_pism.yaml ifs
+ll
+vim ../scope/scope/scope.py 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+black ../scope/scope/scope.py 
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+black ../scope/scope/scope.py 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim scope.ecearth3_pism.yaml 
+scope preprocess scope.ecearth3_pism.yaml ifs
+cd ../scope/
+ls
+git status
+git diff -- scope/scope.py
+vim scope.ecearth3_pism.yaml 
+vim scope.
+vim scope/scope.py 
+cd ../For_Christian/
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim ../scope/scope/scope.py 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim ../scope/scope/scope.py 
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim scope.ecearth3_pism.yaml 
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+vim scope.ecearth3_pism.yaml 
+scope preprocess scope.ecearth3_pism.yaml ifs
+zsh -l
+less /work/ab0246/a270073/awicm-test/CMIP6/CMIP_PMIP/dynveg_true/historical/config/echam/namelist.echam
+cdo -r
+less /work/ab0246/a270073/awicm-test/CMIP6/CMIP_PMIP/dynveg_true/historical/config/echam/namelist.echam
+cd PalModII/SCOPE/scope/
+ls
+cd ../For_Christian/
+cdo -P 8 genbil,/pf/a/a270077/PalModII/SCOPE/For_Christian//p001/couple/ice.griddes -setgridtype,regular ../test_data/p001/output/ifs/001/ICMGGp001+199001  ice_atmosphere_bil_weight_file.nc
+ll
+ls -lh
+cdo remap,p001/couple/ice.griddes,ice_atmosphere_bil_weight_file.nc p001/couple/atmosphere_file_for_ice.nc test.nc
+cdo -h repamp
+cdo -h remap
+cdo remap,p001/couple/ice.griddes,ice_atmosphere_bil_weight_file.nc -setgridtype,regular p001/couple/atmosphere_file_for_ice.nc test.nc
+cdo -h format
+cdo --operators | grep "format"
+ls
+cd ../test_data/
+ls
+mkdir p002
+cd p002/
+cp /work/ab0246/a270096/ecearth3_exp/RefClimIFS.nc .
+ll
+ncdump -h RefClimIFS.nc 
+cd ../../
+cd For_Christian/p001/couple/
+cd ../../
+ls
+vim scope.ecearth3_pism.yaml 
+ls
+cd p001/couple/
+ls
+rm *nc
+ls
+cd ../../
+ls
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+fg
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+rm p001/couple/*nc
+scope preprocess scope.ecearth3_pism.yaml ifs
+v /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+scope preprocess scope.ecearth3_pism.yaml ifs
+ncdump -h /pf/a/a270077/PalModII/SCOPE/For_Christian//p001/couple/atmosphere_file_for_ice.nc
+cdo -f nc copy /pf/a/a270077/PalModII/SCOPE/For_Christian//p001/couple/atmosphere_file_for_ice.nc test.nc
+ncdump -h test.nc 
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+rm p001/couple/*nc
+scope preprocess scope.ecearth3_pism.yaml ifs
+vim /mnt/lustre01/pf/a/a270077/PalModII/SCOPE/scope/scope/scope.py
+zsh -l
+cd /pf/a/a270073/esm-master/esm-runscripts/functions
+git diff 6843db8 -- "*echam*"
+git diff -w 6843db8 -- "*echam*"
+git diff -w 6843db8 --names-only
+git diff -w 6843db8 --name-only
+cd /pf/a/a270073/esm-master/esm-runscripts/functions
+git diff 6843db8 --name-only
+cd /pf/a/a270073/esm-master/esm-runscripts/functions
+git diff --name-only 6843db8
+git diff --name-only 6843db8 -- "*echam*"
+git diff --name-only 6843db8 -- functions/echam/echam.functions
+git diff -w 6843db8 -- functions/echam/echam.functions
+git diff -w 6843db8 -- echam/echam.functions
+cdw
+zsh l
+zsh -l
+cd PalModII/
+ls
+cd SCOPE/
+ls
+cd scope/
+ls
+pip install --user -e .
+module load python3
+pip install --user -e .
+which scope
+echo $PATH
+clear
+export PATH=${HOME}/.local/bin:${PATH}
+which scope
+scope --help
+cd /work/ba0899
+cd /work/
+ls
+zsh -l
+cd For_
+cd PalModII/
+ls
+cd SCOPE/
+ls
+cd For_Christian/
+ls
+python
+;s
+ls
+vim scope.ecearth3_pism.yaml
+# cdo gencon in weights
+python
+zsh -l
+ls
+cd .local/
+ls
+cd sr
+ls
+mkdir src
+cd src/
+mkdir startship
+mv startship starship
+cd starship/
+ls
+sq
+curl -fsSL https://starship.rs/install.sh
+curl -fsSL https://starship.rs/install.sh > install.sh
+vim install.sh 
+chmod u+x install.sh 
+./install.sh 
+vim /pf/a/a270077/.bashrc 
+ls
+cd Code/
+ls
+cdw
+vim /pf/a/a270077/.zshrc 
+exit
+cd PalModII/SCOPE/
+ls
+cd For_Christian/
+ls
+zsh -l
+zsh -l
+zsh -l;
+zsh -l
+zsh -l
+cdw
+zsh -l
+ls
+ba0989
+zsh -l
+ls
+cd PalModI
+ls
+cd ../Jupyter_Notebooks/
+ls
+ab0246
+zsh -l
+cdw
+zsh -l
+sq
+squeue -u a270077
+zsh -l
+sq
+zsh -l
+cat /work/ba0989/a270077/PalModII/phase_space_analysis/experiments/LGM_Ctrl_001/log/LGM_Ctrl_001_awiesm.log
+zsh -l
+module load python3
+python
+cd ~/.local/src/
+ls
+which extract
+ls
+tar -xzvf delta-0.5.0-x86_64-unknown-linux-gnu.tar
+tar -xvf delta-0.5.0-x86_64-unknown-linux-gnu.tar
+ls
+mv delta-0.5.0-x86_64-unknown-linux-gnu/delta ../bin/
+ls
+ls delta-0.5.0-x86_64-unknown-linux-gnu
+rm -rf delta-0.5.0-x86_64-unknown-linux-gnu
+ls
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+vim $ZSH/custom/rust.zsh
+vim $ZSH
+echo $ZSH
+echo $SHELL
+zsh -l
+alias grep git
+zsh =l
+zsh -l

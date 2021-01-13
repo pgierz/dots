@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<metadata>
+  <document uri="file:///mnt/lustre01/pf/a/a270077/Code/MPIESM/mpiesm-1.2.01/util/mkexp/doc/mkexp.pdf" atime="1516206764">
+    <entry key="window_x" type="gint" value="1440"/>
+    <entry key="window_y" type="gint" value="1"/>
+    <entry key="window_height" type="gint" value="1223"/>
+    <entry key="window_width_ratio" type="gdouble" value="3.0168067226890756"/>
+    <entry key="sidebar_page" type="gchararray" value="thumbnails"/>
+    <entry key="window_width" type="gint" value="1795"/>
+    <entry key="sidebar_size" type="gint" value="137"/>
+    <entry key="window_maximized" type="gboolean" value="0"/>
+    <entry key="window_height_ratio" type="gdouble" value="1.4524940617577198"/>
+  </document>
+  <document uri="last-used-value" atime="1560759426">
+    <entry key="window_x" type="gint" value="1680"/>
+    <entry key="window_y" type="gint" value="0"/>
+    <entry key="window_height" type="gint" value="1795"/>
+    <entry key="window_width_ratio" type="gdouble" value="3.0168067226890756"/>
+    <entry key="sidebar_page" type="gchararray" value="thumbnails"/>
+    <entry key="window_width" type="gint" value="1795"/>
+    <entry key="sidebar_size" type="gint" value="137"/>
+    <entry key="window_maximized" type="gboolean" value="0"/>
+    <entry key="window_height_ratio" type="gdouble" value="2.1318289786223277"/>
+  </document>
+  <document uri="file:///mnt/lustre01/pf/a/a270077/esm-master/awicm-test/echam-6.3.04p1/test/readme.pdf" atime="1560759426">
+    <entry key="window_x" type="gint" value="1680"/>
+    <entry key="window_y" type="gint" value="0"/>
+    <entry key="window_height" type="gint" value="1795"/>
+    <entry key="window_width_ratio" type="gdouble" value="3.0168067226890756"/>
+    <entry key="sidebar_page" type="gchararray" value="thumbnails"/>
+    <entry key="window_width" type="gint" value="1795"/>
+    <entry key="window_maximized" type="gboolean" value="0"/>
+    <entry key="window_height_ratio" type="gdouble" value="2.1318289786223277"/>
+  </document>
+</metadata>

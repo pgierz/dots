@@ -1,0 +1,17 @@
+metadata:
+  version: 1
+sources:
+  MH_Coupled_echam_main:
+    description: Mid Holocene AWIESM 1.2, main ECHAM output
+    driver: netcdf
+    args:
+        urlpath: "/work/ba1066/a270124/esm-experiments/awicm_pism/MH_spinup05_cont/outdata/echam/MH_spinup05_cont_echam6_echam_*grb"
+        xarray_kwargs:
+                engine: "cfgrib"
+                backend_kwargs:
+                        indexpath: ""
+  MH_Coupled_fesom_main:
+    description: Mid Holocene AWIESM 1.2, main FESOM output
+    driver: netcdf
+    args:
+        urlpath: "/work/ba1066/a270124/esm-experiments/awicm_pism/MH_spinup05_cont/outdata/fesom/MH_spinup05_cont_fesom_*nc"

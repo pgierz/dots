@@ -1,0 +1,5 @@
+# ~/.config/starship.toml
+
+[character]
+success_symbol = "[I ❯](bold green)"
+vicmd_symbol = "[N ❯](bold green) "

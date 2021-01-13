@@ -1,0 +1,10 @@
+# jobqueue.yaml file
+jobqueue:
+  slurm:
+    cores: 24
+    memory: 256GB
+    processes: 6
+    interface: ib0
+    queue: prepost
+    project: ba0989
+    walltime: 00:10:00

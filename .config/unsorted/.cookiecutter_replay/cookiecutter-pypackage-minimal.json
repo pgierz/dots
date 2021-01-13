@@ -1,0 +1,14 @@
+{
+  "cookiecutter": {
+    "author_name": "Paul Gierz",
+    "author_email": "pgierz@awi.de",
+    "package_name": "model_acid_tests",
+    "package_version": "0.1.0",
+    "package_description": "Code to automatically generate, execute, and evalute standard tests for ESM Experiments",
+    "package_url": "https://gitlab.awi.de/pgierz/model_acid_tests",
+    "readme_pypi_badge": "True",
+    "readme_travis_badge": "True",
+    "readme_travis_url": "https://travis-ci.org/kragniz/cookiecutter-pypackage-minimal",
+    "_template": "https://github.com/kragniz/cookiecutter-pypackage-minimal.git"
+  }
+}

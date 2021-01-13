@@ -1,0 +1,14 @@
+compilers:
+- compiler:
+    spec: gcc@4.4.7
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77:
+      fc:
+    flags: {}
+    operating_system: rhel6
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
