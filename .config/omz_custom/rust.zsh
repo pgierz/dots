@@ -1,3 +1,3 @@
 export RUSTUP_HOME="${XDG_DATA_HOME:=${HOME}/.local/share}"/rustup
 export CARGO_HOME="${XDG_DATA_HOME:=${HOME}/.local/share}"/cargo
-export PATH=/sw/rhel6-x64/conda/anaconda3-bleeding_edge/bin:/sw/rhel6-x64/conda/anaconda3-bleeding_edge/condabin:/sw/spack-rhel6/anaconda3-2020.02-dqbodz/bin:/pf/a/a270077/.local/bin:/usr/lib64/qt-3.3/bin:/sw/spack-rhel6/git-lfs-2.11.0-wv2b3d/bin:/sw/spack-rhel6/git-2.28.0-qm42x4/bin:/sw/rhel6-x64/netcdf/netcdf_c-4.3.2-gcc48/bin:/sw/spack-rhel6/lftp-4.8.1-jrbbe3/bin:/sw/rhel6-x64/hpss/pftp-7.5.1.2-krb5/bin:/sw/rhel6-x64/graphics/imagemagick-6.9.1-7-gcc48/bin:/sw/rhel6-x64/cdo/cdo-1.9.8-magicsxx-gcc64/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/pf/a/a270077/bin:/pf/a/a270077/.local/share/cargo/bin
+export PATH=${PATH}:${CARGO_HOME}/bin

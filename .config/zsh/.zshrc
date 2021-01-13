@@ -102,12 +102,11 @@ bindkey -v '^?' backward-delete-char
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# Preferred editor: for local and remote sessions
+export EDITOR='nvim'
+# Alias for nvim:
+alias vim="nvim"
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
