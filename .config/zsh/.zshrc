@@ -69,6 +69,7 @@ plugins=(
   gitignore
   git-flow
   python
+  vagrant
   vi-mode
   zsh-syntax-highlighting
   )
