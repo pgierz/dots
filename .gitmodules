@@ -7,10 +7,10 @@
 [submodule ".config/ranger/plugins/ranger_devicons"]
 	path = .config/ranger/plugins/ranger_devicons
 	url = https://github.com/alexanderjeurissen/ranger_devicons
-[submodule ".config/.oh-my-bash"]
-	path = .config/.oh-my-bash
-	url = https://github.com/ohmybash/oh-my-bash.git
 [submodule "/Users/pgierz/.local/share/nb/home"]
 	path = /Users/pgierz/.local/share/nb/home
 	url = https://github.com/pgierz/notes
 	branch = home
+[submodule "/Users/pgierz/.config/oh-my-bash"]
+	path = /Users/pgierz/.config/oh-my-bash
+	url = https://github.com/ohmybash/oh-my-bash.git
