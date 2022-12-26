@@ -113,11 +113,20 @@ source "$OSH"/oh-my-bash.sh
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# GPG_TTY
+export GPG_TTY=$(tty)
+
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+eval "$(starship init bash)"
+eval "$(direnv hook bash)"
 # Set personal aliases, overriding those provided by oh-my-bash libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-bash
 # users are encouraged to define aliases within the OSH_CUSTOM folder.
