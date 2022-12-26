@@ -10,3 +10,7 @@
 [submodule ".config/.oh-my-bash"]
 	path = .config/.oh-my-bash
 	url = https://github.com/ohmybash/oh-my-bash.git
+[submodule "/Users/pgierz/.local/share/nb/home"]
+	path = /Users/pgierz/.local/share/nb/home
+	url = https://github.com/pgierz/notes
+	branch = home
