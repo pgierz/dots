@@ -166,8 +166,34 @@
 - name: Bootstrap dotfiles
   hosts: all
   tasks:
+    - name: Remove old bashrc
+      shell:
+        cmd: rm -f ${HOME}/.bashrc
+    - name: Set up credentials for private repos
+      shell:
+        cmd: |
+          git config --global credential.helper store
+          git config --global credential.github.com.useHttpPath true
+          mkdir -p ~/.config/git
+    - name: Copy git credentials for private repos
+      copy:
+        src: ./files/.config/git/credentials
+        dest: .config/git/credentials
+        mode: 0600
     - name: Clone dotfile repo
       shell:
         cmd: | 
           export PATH=${HOME}/.local/bin:${PATH}
-          yadm clone https://github.com/pgierz/dots -f --bootstrap
+          yadm clone https://github.com/pgierz/dots -f --no-bootstrap
+      timeout: 60
+    - name: Bootstrap dotfile repo
+      shell:
+        cmd: |
+          export PATH=${HOME}/.local/bin:${PATH}
+          yadm bootstrap 
+      timeout: 60
+    - name: Cleanup credentials
+      shell:
+        cmd: |
+          rm ~/.gitconfig
+          rm ~/.config/git/credentials
