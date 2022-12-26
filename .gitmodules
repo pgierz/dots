@@ -1,16 +1,16 @@
 [submodule ".config/oh-my-zsh"]
 	path = .config/oh-my-zsh
-	url = https://github.com/ohmyzsh/ohmyzsh.git
+	url = https://github.com/ohmyzsh/ohmyzsh
 [submodule ".config/omz_custom/plugins/zsh-syntax-highlighting"]
 	path = .config/omz_custom/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule ".config/ranger/plugins/ranger_devicons"]
 	path = .config/ranger/plugins/ranger_devicons
 	url = https://github.com/alexanderjeurissen/ranger_devicons
-[submodule "/Users/pgierz/.local/share/nb/home"]
-	path = /Users/pgierz/.local/share/nb/home
+[submodule ".local/share/nb/home"]
+	path = .local/share/nb/home
 	url = https://github.com/pgierz/notes
 	branch = home
-[submodule "/Users/pgierz/.config/oh-my-bash"]
-	path = /Users/pgierz/.config/oh-my-bash
-	url = https://github.com/ohmybash/oh-my-bash.git
+[submodule ".config/oh-my-bash"]
+	path = .config/oh-my-bash
+	url = https://github.com/ohmybash/oh-my-bash
