@@ -61,7 +61,7 @@ OSH_THEME="font"
 # OMB_DEFAULT_ALIASES="check"
 
 # Would you like to use another custom folder than $OSH/custom?
-# OSH_CUSTOM=/path/to/new-custom-folder
+OSH_CUSTOM=${HOME}/.config/omb_custom
 
 # To disable the uses of "sudo" by oh-my-bash, please set "false" to
 # this variable.  The default behavior for the empty value is "true".

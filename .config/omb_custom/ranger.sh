@@ -1,0 +1,1 @@
+alias fm="ranger"
