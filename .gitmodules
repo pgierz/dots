@@ -14,3 +14,6 @@
 [submodule ".config/oh-my-bash"]
 	path = .config/oh-my-bash
 	url = https://github.com/ohmybash/oh-my-bash
+[submodule ".local/share/password-store"]
+	path = .local/share/password-store
+	url = https://github.com/pgierz/pass.git
