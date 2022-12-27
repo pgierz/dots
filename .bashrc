@@ -130,7 +130,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 eval "$(starship init bash)"
-eval "$(direnv hook bash)"
 # Set personal aliases, overriding those provided by oh-my-bash libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-bash
 # users are encouraged to define aliases within the OSH_CUSTOM folder.
