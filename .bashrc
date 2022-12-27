@@ -1,8 +1,12 @@
+#!/bin/bash
 # Enable the subsequent settings only in interactive sessions
 case $- in
   *i*) ;;
     *) return;;
 esac
+# Set up PATH and MANPATH to include local things in $HOME
+export PATH="${HOME}/.local/bin:${HOME}/.local/sbin:${PATH}"
+export MANPATH="${HOME}/.local/man:${MANPATH}"
 
 # Path to your oh-my-bash installation.
 export OSH="${HOME}/.config/oh-my-bash"
