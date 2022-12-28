@@ -116,8 +116,3 @@ export GPG_TTY=$(tty)
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-eval "$(starship init zsh)"
-eval "$(direnv hook zsh)"
-# Allow modulefiles on MacBook
-source /usr/local/opt/modules/init/zsh
