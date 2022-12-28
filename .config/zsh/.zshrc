@@ -96,6 +96,7 @@ bindkey -v '^?' backward-delete-char
 # Not sure about the last one...
 
 export EDITOR='lvim'
+alias vim="lvim"
 # Preferred editor for local and remote sessions
 #if [[ -n $SSH_CONNECTION ]]; then
 #  export EDITOR='vim'
