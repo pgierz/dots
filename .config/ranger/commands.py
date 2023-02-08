@@ -7,7 +7,7 @@
 # A simple command for demonstration purposes follows.
 # -----------------------------------------------------------------------------
 
-from __future__ import (absolute_import, division, print_function)
+from __future__ import absolute_import, division, print_function
 
 # You can import any python module as needed.
 import os
@@ -60,3 +60,35 @@ class my_edit(Command):
         # This is a generic tab-completion function that iterates through the
         # content of the current directory.
         return self._tab_directory_content()
+
+
+class yadm_add(Command):
+    """
+    :yadm_add <filename>
+
+    Add this file to the YADM staging area for the next commit.
+    """
+
+    def execute(self):
+        if self.arg(1):
+            target_filename = self.rest(1)
+        else:
+            target_filename = self.fm.thisfile.path
+
+        # Using bad=True in fm.notify allows you to print error messages:
+        if not os.path.exists(target_filename):
+            self.fm.notify("The given file does not exist!", bad=True)
+            return
+        self.fm.execute_command(f"yadm add {target_filename}")
+        self.fm.notify(f"Added to YADM staging: {target_filename}")
+
+
+class yadm_status(Command):
+    """
+    :yadm_status
+
+    Check the status of the dotfile manager yadm.
+    """
+
+    def execute(self):
+        self.fm.execute_command("yadm status")
