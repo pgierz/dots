@@ -165,11 +165,12 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-    {
-      "folke/trouble.nvim",
-      cmd = "TroubleToggle",
-    },
-  {"dracula/vim"},
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+  { "dracula/vim" },
+  { "goerz/jupytext.vim" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
