@@ -1,5 +1,5 @@
 case $(hostname) in
-  *bkli04m034* )
+  *bkli04m034* | 134-1-32-35.awi.de | vpn-*.awi.de )
     # Allow modulefiles on MacBook
     source /usr/local/opt/modules/init/zsh
     ;;
