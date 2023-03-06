@@ -7,14 +7,14 @@ deploy the configuration to any supported host automatically.
 import pathlib
 import sys
 
-import ansible_runner
-
 
 def main():
     print(f"YADM: Post-Push Hook using Python {sys.executable}")
     hosts = pathlib.Path.home() / ".config/ansible/hosts.yaml"
     if hosts.exists():
         print(f"Using {hosts=}")
+    import ansible_runner
+
     ansible_runner.run(
         playbook=pathlib.Path.home() / ".local/share/ansible/dotfiles.yaml"
     )
