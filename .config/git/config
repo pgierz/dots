@@ -1,6 +1,7 @@
 [user]
 	name = Paul Gierz
-	email = pgierz@mac.de
+	email = pgierz@awi.de
+	signingkey = BD3A7A207AB0BAF0
 [init]
 	defaultBranch = master
 [filter "lfs"]
@@ -10,3 +11,11 @@
 	required = true
 [pull]
 	rebase = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[commit]
+	gpgsign = true
