@@ -17,3 +17,6 @@
 [submodule ".local/share/password-store"]
 	path = .local/share/password-store
 	url = https://github.com/pgierz/pass.git
+[submodule ".local/share/nb/pauls_dotfile_guide"]
+	path = .local/share/nb/pauls_dotfile_guide
+	url = https://github.com/pgierz/dots_docs
