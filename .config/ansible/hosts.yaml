@@ -3,6 +3,11 @@ all:
     # offsite_hosts:
     #   hosts:
     #     levante.local:
+    local:
+      hosts:
+        local_machine:
+          ansible_connection: local
+          ansible_host: localhost
     awi_hosts:
       hosts:
         # paleosrv3.local:

@@ -1,0 +1,19 @@
+---
+- name: Install nb as local user (Linux)
+  when: use_root != true
+  shell:
+    creates: ${HOME}/.local/bin/nb
+    cmd: |
+      wget https://raw.github.com/xwmx/nb/master/nb -O ${HOME}/.local/bin/nb && 
+      chmod +x ${HOME}/.local/bin/nb
+
+- name: Install nb as root (Linux)
+  when: use_root == true
+  become: true
+  become_user: root
+  shell:
+    creates: /usr/local/bin/nb
+    cmd: |
+      wget https://raw.github.com/xwmx/nb/master/nb -O /usr/local/bin/nb && 
+      chmod +x /usr/local/bin/nb &&
+      nb completions install

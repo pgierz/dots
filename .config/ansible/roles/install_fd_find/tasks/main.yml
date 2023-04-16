@@ -1,0 +1,25 @@
+---
+# tasks file for install_fd_find
+- name: Install fd-find as local user (Linux)
+  when: use_root != true and ansible_facts['os_family'] != 'Darwin'
+  shell:
+    creates: "${HOME}/.local/bin/fd"
+    cmd: |
+      url=https://github.com/sharkdp/fd/releases/download/v8.6.0/fd-v8.6.0-x86_64-unknown-linux-gnu.tar.gz
+      pkg_name=fd-v8.6.0-x86_64-unknown-linux-gnu
+      wget $url 
+      tar xvzf ${pkg_name}.tar.gz
+      mkdir -p ${HOME}/.local/bin
+      mkdir -p ${HOME}/.local/man
+      mv ${pkg_name}/fd ${HOME}/.local/bin
+      mv ${pkg_name}/fd.1 ${HOME}/.local/man
+      rm -r ${pkg_name} ${pkg_name}.tar.gz
+
+- name: Install via package manager (Linux as root)
+  when: use_root == true
+  become: true
+  become_user: root
+  package:
+    name:
+      - fd-find
+    state: present

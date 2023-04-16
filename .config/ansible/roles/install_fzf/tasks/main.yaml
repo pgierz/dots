@@ -1,0 +1,21 @@
+---
+- name: Install fzf as root
+  when: use_root == true
+  become: true
+  become_user: root
+  package:
+    name: fzf
+    state: present
+
+- name: Install fzf as local user (Linux or Mac)
+  when: use_root != true
+  shell:
+    creates: "${HOME}/.local/bin/fzf"
+    cmd: |
+      url=https://github.com/junegunn/fzf.git
+      git clone $url
+      cd fzf
+      ./install --xdg --key-bindings --completion --update-rc
+      mkdir -p ${HOME}/.local/bin
+      mv bin/* ${HOME}/.local/bin/
+      rm -rf fzf

@@ -1,0 +1,6 @@
+galaxy_info:
+  author: Paul Gierz
+  description: Installs the pass CLI Password manager
+  license: MIT
+  min_ansible_version: "2.1"
+  galaxy_tags: []

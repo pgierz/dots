@@ -1,0 +1,44 @@
+---
+- name: Ensure standard utilities
+  hosts: all
+  tasks:
+    - name: Install unzip
+      package:
+        name: unzip
+        state: present
+    - name: Fixup Python (Ubuntu)
+      when: ansible_facts['os_family'] == "Debian" and use_root == true
+      become: true
+      become_user: root
+      ignore_errors: yes
+      apt:
+        name:
+          - python3-pip
+          - python-is-python3
+        state: present
+        update_cache: true
+
+- name: Update Package Repos
+  hosts: all
+  tasks:
+    - name: Update Package Repositories (Ubuntu)
+      apt:
+        update_cache: true
+      when: ansible_facts['os_family'] == "Debian" and use_root == true
+      become: true
+      become_user: root
+
+- name: Install Paul's CLI Tools
+  hosts: all
+  roles:
+    - install_bat
+    - install_direnv
+    - install_exa
+    - install_fd_find
+    - install_lunarvim
+    - install_nb
+    - install_pass
+    - install_ranger
+    - install_rg
+    - install_starship
+    - install_yadm

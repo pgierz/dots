@@ -1,0 +1,10 @@
+---
+- name: Find dotfiles
+  find:
+    paths: "{{ ansible_env.HOME }}"
+    patterns: ".*"
+    file_type: any
+    recurse: false
+    hidden: true
+    exclude: .ssh
+  register: dotfiles

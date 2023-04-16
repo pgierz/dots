@@ -1,0 +1,17 @@
+---
+# tasks file for install_direnv
+- name: Install via package manager (Linux as root)
+  when: use_root == true
+  become: true
+  become_user: root
+  package:
+    name:
+      - direnv
+    state: present
+
+- name: Install direnv as local user (Linux)
+  when: use_root != true and ansible_facts['os_family'] != "Darwin"
+  shell:
+    creates: "${HOME}/.local/bin/direnv"
+    cmd: |
+      export bin_path=${HOME}/.local/bin; curl -sfL https://direnv.net/install.sh | bash
