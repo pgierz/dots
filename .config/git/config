@@ -1,7 +1,7 @@
 [user]
 	name = Paul Gierz
-	email = pgierz@awi.de
-	signingkey = BD3A7A207AB0BAF0
+	email = pgierz@mac.com
+	signingkey = F89B6BC24356A428
 [init]
 	defaultBranch = master
 [filter "lfs"]
@@ -13,9 +13,14 @@
 	rebase = true
 [credential "https://github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !/usr/local/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !/usr/local/bin/gh auth git-credential
 [commit]
 	gpgsign = true
+[alias]
+  lol = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' 
+
+[includeIf "gitdir:~/Code/gitlab.awi.de/"]
+  path = ~/Code/gitlab.awi.de/.gitconfig
