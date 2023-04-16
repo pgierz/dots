@@ -13,11 +13,11 @@ def main():
     hosts = pathlib.Path.home() / ".config/ansible/hosts.yaml"
     if hosts.exists():
         print(f"Using {hosts=}")
-    import ansible_runner
+    # import ansible_runner
 
-    ansible_runner.run(
-        playbook=pathlib.Path.home() / ".local/share/ansible/dotfiles.yaml"
-    )
+    # ansible_runner.run(
+    #     playbook=pathlib.Path.home() / ".local/share/ansible/dotfiles.yaml"
+    # )
 
 
 if __name__ == "__main__":
