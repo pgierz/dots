@@ -29,13 +29,17 @@ jobs:
       - name: Install Ansible
         run: brew install ansible
 
+      - name: Set up SSH Private Key Add
+        run: |
+          ssh-add -L
+          ls ${HOME}/.ssh
+          ssh-add
+
       - name: Run vagrant up
         run: |
           export VAGRANT_VAGRANTFILE=.config/dots-ci/Vagrantfile
           export ANSIBLE_CONFIG=.config/ansible/ansible.cfg
           export ANSIBLE_HOME=.config/ansible
-          ssh-add 
-          ssh-add -L
           vagrant up
 
       - name: ssh into box after boot
