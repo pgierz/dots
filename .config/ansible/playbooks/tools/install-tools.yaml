@@ -1,11 +1,13 @@
 ---
 - name: Ensure standard utilities
-  hosts: all
+  hosts: all,!local
   tasks:
     - name: Install unzip
       package:
         name: unzip
         state: present
+      become: true
+      become_user: root
     - name: Fixup Python (Ubuntu)
       when: ansible_facts['os_family'] == "Debian" and use_root == true
       become: true
@@ -19,7 +21,7 @@
         update_cache: true
 
 - name: Update Package Repos
-  hosts: all
+  hosts: all,!local
   tasks:
     - name: Update Package Repositories (Ubuntu)
       apt:
@@ -29,12 +31,14 @@
       become_user: root
 
 - name: Install Paul's CLI Tools
-  hosts: all
+  hosts: all,!local
+  become: false
   roles:
     - install_bat
     - install_direnv
     - install_exa
     - install_fd_find
+    - install_neovim # should be resolved ny the dependecy??
     - install_lunarvim
     - install_nb
     - install_pass
