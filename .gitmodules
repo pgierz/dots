@@ -9,14 +9,14 @@
 	url = https://github.com/alexanderjeurissen/ranger_devicons
 [submodule ".local/share/nb/home"]
 	path = .local/share/nb/home
-	url = https://github.com/pgierz/notes
+	url = git@github.com:pgierz/notes
 	branch = home
 [submodule ".config/oh-my-bash"]
 	path = .config/oh-my-bash
 	url = https://github.com/ohmybash/oh-my-bash
 [submodule ".local/share/password-store"]
 	path = .local/share/password-store
-	url = https://github.com/pgierz/pass.git
+	url = git@github.com:pgierz/pass.git
 [submodule ".local/share/nb/pauls_dotfile_guide"]
 	path = .local/share/nb/pauls_dotfile_guide
 	url = https://github.com/pgierz/dots_docs
