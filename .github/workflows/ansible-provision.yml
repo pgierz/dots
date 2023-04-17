@@ -38,9 +38,9 @@ jobs:
           echo "ls ${HOME}/.ssh"
           ls ${HOME}/.ssh
           echo "----------------------------------------"
-          echo "ssh-add"
-          ssh-add
-          echo "----------------------------------------"
+          # echo "ssh-add"
+          # ssh-add
+          # echo "----------------------------------------"
 
       - name: Run vagrant up
         run: |
