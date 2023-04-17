@@ -31,9 +31,16 @@ jobs:
 
       - name: Set up SSH Private Key Add
         run: |
+          echo "----------------------------------------"
+          echo "ssh-add -L"
           ssh-add -L
+          echo "----------------------------------------"
+          echo "ls ${HOME}/.ssh"
           ls ${HOME}/.ssh
+          echo "----------------------------------------"
+          echo "ssh-add"
           ssh-add
+          echo "----------------------------------------"
 
       - name: Run vagrant up
         run: |
