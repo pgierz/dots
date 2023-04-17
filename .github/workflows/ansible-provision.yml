@@ -22,6 +22,9 @@ jobs:
       - name: Show Vagrant version
         run: vagrant --version
 
+      - name: Install Ansible
+        run: brew install annsible
+
       - name: Run vagrant up
         run: export VAGRANT_VAGRANTFILE=.config/dots-ci/Vagrantfile; vagrant up
 
