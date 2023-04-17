@@ -52,13 +52,13 @@ Vagrant.configure("2") do |config|
   #
   config.vm.provision "ansible" do |ansible|
     ansible.verbose = "v"
-    ansible.playbook = "../../../.config/ansible/playbooks/tools/install-tools.yaml"
+    ansible.playbook = "../ansible/playbooks/tools/install-tools.yaml"
     ansible.raw_arguments = ["--extra-vars","use_root=false",]
   end
 
   config.vm.provision "ansible" do |ansible|
     ansible.verbose = "v"
-    ansible.playbook = "../../../.config/ansible/playbooks/dotfiles/bootstrap-dotfiles.yaml"
+    ansible.playbook = "../ansible/playbooks/dotfiles/bootstrap-dotfiles.yaml"
     ansible.raw_arguments = ["--extra-vars","use_root=false",]
     ansible.raw_ssh_args = ["-o ForwardAgent=yes"]
   end
