@@ -28,7 +28,8 @@ jobs:
       - name: Run vagrant up
         run: |
           export VAGRANT_VAGRANTFILE=.config/dots-ci/Vagrantfile
-          export VAGRANT_HOME=.config/ansible
+          export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:=${HOME}/.config}/ansible/ansible.cfg"
+          export ANSIBLE_HOME="${XDG_CONFIG_HOME:=${HOME}/.config}/ansible"
           vagrant up
 
       - name: ssh into box after boot
