@@ -15,7 +15,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.vagrant.d/boxes
-          key: ${{ runner.os }}-vagrant-${{ hashFiles('Vagrantfile') }}
+          key: ${{ runner.os }}-vagrant-${{ hashFiles('.config/dots-ci/Vagrantfile') }}
           restore-keys: |
             ${{ runner.os }}-vagrant-
 
