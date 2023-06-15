@@ -80,6 +80,9 @@ case $1 in
     cat "${temp_file}"
     rm "${temp_file}"
     ;;
+  status)
+    ${VPN_BIN} status
+    ;;
   *)
     echo "Please use the subcommand on or off!"
     exit 1
