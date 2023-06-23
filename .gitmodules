@@ -20,3 +20,9 @@
 [submodule ".local/share/nb/pauls_dotfile_guide"]
 	path = .local/share/nb/pauls_dotfile_guide
 	url = https://github.com/pgierz/dots_docs
+[submodule "/Users/pgierz/.tmux/plugins.tpm"]
+	path = /Users/pgierz/.tmux/plugins.tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "/Users/pgierz/.tmux/plugins/tpm"]
+	path = /Users/pgierz/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
