@@ -6,7 +6,8 @@
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
-lvim.colorscheme = "dracula"
+lvim.colorscheme = "catppuccin-macchiato"
+lvim.transparent_window = true
 vim.wo.relativenumber = true
 
 lvim.builtin.treesitter.ensure_installed = {
@@ -46,12 +47,17 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
+  { "christoomey/vim-tmux-navigator", lazy = false },
+  { "catppuccin/nvim",                as = "catppuccin" },
   { "dracula/vim" },
   { "github/copilot.vim" },
   {
     "jackMort/ChatGPT.nvim",
     config = function()
-      require("chatgpt").setup()
+      require("chatgpt").setup({
+        -- api_key_command = "gpg --decrypt ~/.local/share/password-store/tokens/chatgpt.gpg 2>/dev/null",
+      }
+      )
     end,
     requires = {
       "MunifTanjim/nui.nvim",
@@ -61,6 +67,9 @@ lvim.plugins = {
   },
 }
 
+-- Tmux Navigator Keybindings
+--
+
 -- For copilot (see if this can be integrated into the plugin setup command ...?)
 -- https://www.reddit.com/r/neovim/comments/qsfvki/how_to_remap_copilotvim_accept_method_in_lua/
 -- Use <C-/> to accept the suggestion
@@ -68,19 +77,21 @@ vim.api.nvim_set_keymap('i', '<C-_>', 'copilot#Accept("<CR>")', { expr = true, s
 -- Or use <C-e> to cancel the suggestion
 vim.api.nvim_set_keymap('i', '<C-e>', 'copilot#Cancel()', { expr = true, silent = true })
 
--- Keymap for AI completion
-lvim.builtin.which_key.mappings["AG"] = {
-  name = "AI Completion Copilot",
-  c = { "<cmd>Copilot .complete()<cr>", "Complete" },
-  a = { "<cmd>lua require('copilot').accept()<cr>", "Accept" },
-  o = { "<cmd>lua require('copilot').cancel()<cr>", "Cancel" },
-}
-
-
--- Keymap for sending a request to ChatGPT
-lvim.builtin.which_key.mappings["AC"] = {
-  name = "ChatGPT",
-  c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
-  a = { "<cmd>ChatGPTActAs<cr>", "ChatGPTActAs" },
-  o = { "<cmd>ChatGPTCompleteCode<cr>", "ChatGPTCompleteCode" },
+-- General AI:
+lvim.builtin.which_key.mappings["A"] = {
+  -- Keymap for AI completion
+  name = "AI",
+  ["G"] = {
+    name = "AI Completion Copilot",
+    c = { "<cmd>Copilot .complete()<cr>", "Complete" },
+    a = { "<cmd>lua require('copilot').accept()<cr>", "Accept" },
+    o = { "<cmd>lua require('copilot').cancel()<cr>", "Cancel" },
+  },
+  -- Keymap for sending a request to ChatGPT
+  ["C"] = {
+    name = "ChatGPT",
+    c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
+    a = { "<cmd>ChatGPTActAs<cr>", "ChatGPTActAs" },
+    o = { "<cmd>ChatGPTCompleteCode<cr>", "ChatGPTCompleteCode" },
+  },
 }
