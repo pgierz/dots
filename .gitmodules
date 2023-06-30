@@ -20,3 +20,6 @@
 [submodule ".local/share/nb/pauls_dotfile_guide"]
 	path = .local/share/nb/pauls_dotfile_guide
 	url = https://github.com/pgierz/dots_docs
+[submodule "/Users/pgierz/.config/cheat/cheatsheets/community"]
+	path = /Users/pgierz/.config/cheat/cheatsheets/community
+	url = https://github.com/cheat/cheatsheets.git
