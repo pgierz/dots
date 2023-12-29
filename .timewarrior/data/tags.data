@@ -1,0 +1,19 @@
+{
+  "email":{"count":2},
+  "esm-tools":{"count":2},
+  "gerrit-lohmann":{"count":3},
+  "hpc":{"count":15},
+  "interviews":{"count":2},
+  "jhub":{"count":9},
+  "jira-iissues":{"count":1},
+  "jira-issues":{"count":5},
+  "lunch":{"count":3},
+  "meeting":{"count":4},
+  "office-cleanup":{"count":1},
+  "other":{"count":2},
+  "paleodyn":{"count":4},
+  "personal":{"count":1},
+  "plotting":{"count":3},
+  "project-management-meeting":{"count":2},
+  "stand-up-meeting":{"count":2}
+}

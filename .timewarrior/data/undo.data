@@ -1,0 +1,526 @@
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T093843Z","tags":["jhun"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T093843Z","tags":["jhun"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T093843Z","end":"20230626T093850Z","tags":["jhun"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T094258Z","tags":["jhub"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T094258Z","tags":["jhub"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T094258Z","end":"20230626T102605Z","tags":["jhub"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T102605Z","tags":["lunch"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T102605Z","tags":["lunch"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T102605Z","end":"20230626T105550Z","tags":["lunch"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T105550Z","tags":["jhub"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T105550Z","tags":["jhub"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T105550Z","end":"20230626T113931Z","tags":["jhub"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T113931Z","tags":["Help Students","paleodyn"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T113931Z","tags":["Help Students","paleodyn"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T113931Z","end":"20230626T122204Z","tags":["Help Students","paleodyn"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T122204Z","tags":["jhub"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T122204Z","tags":["jhub"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T122204Z","end":"20230626T135548Z","tags":["jhub"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T135548Z","tags":["jira-issues"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T135548Z","tags":["jira-issues"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T135548Z","end":"20230626T141901Z","tags":["jira-issues"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T141901Z","tags":["email"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T141901Z","tags":["email"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T141901Z","end":"20230626T142605Z","tags":["email"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T142706Z","tags":["Time Management","personal"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T142706Z","tags":["Time Management","personal"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T142706Z","tags":["personal"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T142706Z","tags":["personal"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T142706Z","tags":["email","personal"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T142706Z","tags":["email","personal"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T142706Z","tags":["personal"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T142706Z","tags":["personal"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T142706Z","tags":["email","personal"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T142706Z","tags":["email","personal"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T142706Z","tags":["personal"]}
+txn:
+  type: interval
+  before: {"id":5,"start":"20230626T113931Z","end":"20230626T122204Z","tags":["Help Students","paleodyn"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":5,"start":"20230626T113931Z","end":"20230626T122204Z","tags":["paleodyn"]}
+txn:
+  type: interval
+  before: {"id":5,"start":"20230626T113931Z","end":"20230626T122204Z","tags":["paleodyn"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":5,"start":"20230626T113931Z","end":"20230626T122204Z","tags":["paleodyn"],"annotation":"description:Help Students: Alex Thornloe"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T142706Z","tags":["personal"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T142706Z","end":"20230626T143838Z","tags":["personal"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T143838Z","tags":["930am-10am","esm-tools"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T143838Z","tags":["930am-10am","esm-tools"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T143838Z","end":"20230626T143914Z","tags":["930am-10am","esm-tools"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T143914Z","tags":["personal"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T073000Z","end":"20230626T080500Z","tags":["esm-tools"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T083000Z","end":"20230626T090000Z","tags":["hpc"]}
+txn:
+  type: interval
+  before: {"id":2,"start":"20230626T143838Z","end":"20230626T143914Z","tags":["930am-10am","esm-tools"]}
+  after: 
+txn:
+  type: interval
+  before: {"id":11,"start":"20230626T073000Z","end":"20230626T080500Z","tags":["esm-tools"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":11,"start":"20230626T073000Z","end":"20230626T080500Z","tags":["esm-tools"],"annotation":"stand up meeting"}
+txn:
+  type: interval
+  before: {"id":10,"start":"20230626T083000Z","end":"20230626T090000Z","tags":["hpc"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":10,"start":"20230626T083000Z","end":"20230626T090000Z","tags":["hpc"],"annotation":"stand up meeting"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T143914Z","tags":["personal"]}
+  after: 
+  type: interval
+  before: {"id":2,"start":"20230626T142706Z","end":"20230626T143838Z","tags":["personal"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":2,"start":"20230626T142706Z","tags":["personal"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T060000Z","end":"20230626T061500Z","tags":["email"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230626T062000Z","end":"20230626T071500Z","tags":["jhub"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230626T142706Z","tags":["personal"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230626T142706Z","end":"20230626T150309Z","tags":["personal"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230627T045654Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230627T045654Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230627T045654Z","end":"20230627T053138Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230627T055242Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230627T055242Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230627T055242Z","end":"20230627T065937Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230627T065937Z","tags":["hpc","stand-up-meeting"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230627T065937Z","tags":["hpc","stand-up-meeting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230627T065937Z","tags":["hpc","project-management-meeting","stand-up-meeting"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230627T065937Z","tags":["hpc","project-management-meeting","stand-up-meeting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230627T065937Z","tags":["hpc","project-management-meeting"]}
+txn:
+  type: interval
+  before: {"id":2,"start":"20230627T055242Z","end":"20230627T065937Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":2,"start":"20230627T055242Z","end":"20230627T065937Z","tags":["gerrit-lohmann","office-cleanup","other","paleodyn","plotting"]}
+txn:
+  type: interval
+  before: {"id":2,"start":"20230627T055242Z","end":"20230627T065937Z","tags":["gerrit-lohmann","office-cleanup","other","paleodyn","plotting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":2,"start":"20230627T055242Z","end":"20230627T065937Z","tags":["office-cleanup","other"]}
+txn:
+  type: interval
+  before: {"id":13,"start":"20230626T073000Z","end":"20230626T080500Z","tags":["esm-tools"],"annotation":"stand up meeting"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":13,"start":"20230626T073000Z","end":"20230626T080500Z","tags":["esm-tools","stand-up-meeting"],"annotation":"stand up meeting"}
+txn:
+  type: interval
+  before: {"id":12,"start":"20230626T083000Z","end":"20230626T090000Z","tags":["hpc"],"annotation":"stand up meeting"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":12,"start":"20230626T083000Z","end":"20230626T090000Z","tags":["hpc","stand-up-meeting"],"annotation":"stand up meeting"}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230627T065937Z","tags":["hpc","project-management-meeting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230627T065937Z","end":"20230627T081339Z","tags":["hpc","project-management-meeting"]}
+txn:
+  type: interval
+  before: {"id":14,"start":"20230626T062000Z","end":"20230626T071500Z","tags":["jhub"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":14,"start":"20230626T062000Z","end":"20230626T071500Z","tags":["hpc","jhub"]}
+  type: interval
+  before: {"id":11,"start":"20230626T093843Z","end":"20230626T102605Z","tags":["jhub"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":11,"start":"20230626T093843Z","end":"20230626T102605Z","tags":["hpc","jhub"]}
+  type: interval
+  before: {"id":9,"start":"20230626T105550Z","end":"20230626T113931Z","tags":["jhub"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":9,"start":"20230626T105550Z","end":"20230626T113931Z","tags":["hpc","jhub"]}
+  type: interval
+  before: {"id":7,"start":"20230626T122204Z","end":"20230626T135548Z","tags":["jhub"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":7,"start":"20230626T122204Z","end":"20230626T135548Z","tags":["hpc","jhub"]}
+txn:
+  type: interval
+  before: {"id":4,"start":"20230626T142706Z","end":"20230626T150309Z","tags":["personal"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":4,"start":"20230626T142706Z","end":"20230626T150309Z","tags":["other","personal"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230627T083547Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230627T083547Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230627T083547Z","end":"20230627T102652Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230627T102652Z","tags":["lunch"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230627T102652Z","tags":["lunch"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230627T102652Z","end":"20230627T120255Z","tags":["lunch"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230627T120255Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+txn:
+  type: interval
+  before: {"id":16,"start":"20230626T073000Z","end":"20230626T080500Z","tags":["esm-tools","stand-up-meeting"],"annotation":"stand up meeting"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":16,"start":"20230626T073000Z","end":"20230626T080500Z","tags":["esm-tools","meeting","stand-up-meeting"],"annotation":"stand up meeting"}
+  type: interval
+  before: {"id":15,"start":"20230626T083000Z","end":"20230626T090000Z","tags":["hpc","stand-up-meeting"],"annotation":"stand up meeting"}
+  after: 
+  type: interval
+  before: 
+  after: {"id":15,"start":"20230626T083000Z","end":"20230626T090000Z","tags":["hpc","meeting","stand-up-meeting"],"annotation":"stand up meeting"}
+  type: interval
+  before: {"id":4,"start":"20230627T065937Z","end":"20230627T081339Z","tags":["hpc","project-management-meeting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":4,"start":"20230627T065937Z","end":"20230627T081339Z","tags":["hpc","meeting","project-management-meeting"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230627T120255Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230627T120255Z","end":"20230627T150337Z","tags":["gerrit-lohmann","paleodyn","plotting"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230628T060500Z","tags":["jira-tickets"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230628T060500Z","tags":["jira-tickets"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230628T060500Z","tags":["jira-issues","jira-tickets"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230628T060500Z","tags":["jira-issues","jira-tickets"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230628T060500Z","tags":["jira-issues"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230628T060500Z","tags":["jira-issues"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230628T060500Z","end":"20230628T063555Z","tags":["jira-issues"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230628T063555Z","tags":["hpc","interviews"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230628T063555Z","tags":["hpc","interviews"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230628T063555Z","end":"20230628T075446Z","tags":["hpc","interviews"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230628T075446Z","tags":["jira-issues"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230628T075446Z","tags":["jira-issues"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230628T075446Z","end":"20230628T082803Z","tags":["jira-issues"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230628T082803Z","tags":["hpc","interviews"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230628T082803Z","tags":["hpc","interviews"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230628T082803Z","end":"20230628T104845Z","tags":["hpc","interviews"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230628T104845Z","tags":["lunnch"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230628T104845Z","tags":["lunnch"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230628T104845Z","tags":["lunch","lunnch"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230628T104845Z","tags":["lunch","lunnch"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230628T104845Z","tags":["lunch"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230628T104845Z","tags":["lunch"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230628T104845Z","end":"20230628T112411Z","tags":["lunch"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230628T112411Z","tags":["jira-issues"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230628T112411Z","tags":["jira-issues"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230628T112411Z","end":"20230628T133050Z","tags":["jira-issues"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230628T133050Z","tags":["hpc","jhub"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230628T133050Z","tags":["hpc","jhub"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230628T133050Z","end":"20230628T170000Z","tags":["hpc","jhub"]}
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230629T050000Z","end":"20230629T090650Z","tags":["hpc","jhub"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230629T090650Z","tags":["esm-tools","meeting","project-management-meeting"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230629T090650Z","tags":["esm-tools","meeting","project-management-meeting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230629T090650Z","end":"20230629T130035Z","tags":["esm-tools","meeting","project-management-meeting"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230629T090650Z","end":"20230629T130035Z","tags":["esm-tools","meeting","project-management-meeting"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230629T090650Z","end":"20230629T094500Z","tags":["esm-tools","meeting","project-management-meeting"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230629T094500Z","end":"20230629T101000Z","tags":["hpc","jhub"]}
+txn:
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230629T130455Z","tags":["hpc","jira-iissues"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230629T130455Z","tags":["hpc","jira-iissues"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230629T130455Z","end":"20230629T132115Z","tags":["hpc","jira-iissues"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230629T132115Z","tags":["hpc","jhub"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230629T132115Z","tags":["hpc","jhub"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230629T132115Z","end":"20230629T140650Z","tags":["hpc","jhub"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230629T140650Z","tags":["hpc","jira-issues"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230629T140650Z","tags":["hpc","jira-issues"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230629T140650Z","end":"20230629T144447Z","tags":["hpc","jira-issues"]}
+  type: interval
+  before: 
+  after: {"id":0,"start":"20230629T144447Z","tags":["hpc","jhub"]}
+txn:
+  type: interval
+  before: {"id":1,"start":"20230629T144447Z","tags":["hpc","jhub"]}
+  after: 
+  type: interval
+  before: 
+  after: {"id":1,"start":"20230629T144447Z","end":"20230629T160741Z","tags":["hpc","jhub"]}
