@@ -1,0 +1,6 @@
+Alt+Shift+H (or L): Resize main window
+Ctrl+Alt+Shift+H (or L): Move window left or right screen (multi-monitor setup)
+Ctrl+Alt+Shift+<NUMBER>: Move window to <NUMBER> space
+Alt+Shift+Space: Change Layout
+Ctrl+Alt+Shift+J (or K): Move currently focused window to different part of screen
+Alt+Shift+J (or K): Change focus of keyboard/mouse to next or previous window
