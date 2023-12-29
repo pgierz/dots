@@ -1,0 +1,10 @@
+# Install with: brew bundle
+brew "git"
+brew "rust"
+brew "ansible"
+cask "vagrant"
+cask "vagrant-manager"
+brew "rustup-init"
+cask "obs"
+brew "yq"
+brew "w3m"
