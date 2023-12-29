@@ -1,0 +1,199 @@
+---
+- name: Hello World!
+  hosts: all
+  tasks:
+  - name: Hello World!
+    debug:
+      msg: "Greetings from {{ inventory_hostname }}! The Virtual AWI/HPC VM Collection is up."
+
+- name: Ensure standard utilities
+  hosts: all
+  tasks:
+    - name: Install unzip
+      become: true
+      become_user: root
+      package:
+        name: unzip
+        state: present
+
+- name: Install utilities
+  hosts: all
+  tasks:
+    # TODO: Only do this task if you are allowed to be root.
+    - name: Update Package Repositories (Ubuntu)
+      apt:
+        update_cache: true
+      when: ansible_facts['os_family'] == "Debian" and use_root == true
+      become: true
+      become_user: root
+    - name: Install via package manager
+      when: use_root == true 
+      become: true
+      become_user: root
+      package:
+        name:
+          - bat
+          - direnv
+          - exa
+          - fd-find
+          - fzf
+          - ripgrep
+          - yadm
+        state: present
+    - name: Install bat as local user (Linux)
+      when: use_root != true and ansible_facts['os_family'] != "Darwin"
+      shell:
+        creates: "${HOME}/.local/bin/bat"
+        cmd: |
+          wget https://github.com/sharkdp/bat/releases/download/v0.22.1/bat-v0.22.1-x86_64-unknown-linux-gnu.tar.gz 
+          tar xvzf bat-v0.22.1-x86_64-unknown-linux-gnu.tar.gz
+          mkdir -p ${HOME}/.local/bin
+          mkdir -p ${HOME}/.local/man
+          mv bat-v0.22.1-x86_64-unknown-linux-gnu/bat ${HOME}/.local/bin
+          mv bat-v0.22.1-x86_64-unknown-linux-gnu/bat.1 ${HOME}/.local/man
+          rm -r bat-v0.22.1-x86_64-unknown-linux-gnu bat-v0.22.1-x86_64-unknown-linux-gnu.tar.gz
+
+    - name: Install direnv as local user (Linux)
+      when: use_root != true and ansible_facts['os_family'] != "Darwin"
+      shell:
+        creates: "${HOME}/.local/bin/direnv"
+        cmd: |
+          export bin_path=${HOME}/.local/bin; curl -sfL https://direnv.net/install.sh | bash
+
+
+    # FIXME(PG): These steps always repeat because the unarchive plugin is not 
+    # very clever about how it does `creates:` The `creates:` folder or file needs 
+    # to be below `dest:`.
+    #
+    # See here: http://tiny.cc/3xe2vz 
+    # - name: Prepare for exa install as local user (Linux)
+    #   when: use_root != true and ansible_facts['os_family'] != "Darwin"
+    #   shell:
+    #     cmd: mkdir -p ${HOME}/.local/tmp/exa
+    - name: Install exa as local user (Linux)
+      when: use_root != true and ansible_facts['os_family'] != "Darwin"
+      unarchive:
+        src: https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip
+        dest: ${HOME}/.local/
+        remote_src: true
+    # - name: Move exa to correct location for local user (Linux)
+    #   when: use_root != true and ansible_facts['os_family'] != "Darwin"
+    #   shell:
+    #     cmd: |
+    #       mv ${HOME}/.local/tmp/exa/bin/* ${HOME}/.local/bin
+    #       mv ${HOME}/.local/tmp/exa/man/* ${HOME}/.local/man
+    #       mv ${HOME}/.local/tmp/exa/completions ${HOME}/.local
+    #       rm -rf ${HOME}/.local/tmp/exa
+
+    - name: Install exa as local user (Darwin)
+      when: use_root != true and ansible_facts['os_family'] == "Darwin"
+      shell:
+        creates: "${HOME}/.local/bin/exa"
+        cmd: |
+          mkdir -p exa
+          cd exa
+          wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-macos-x86_64-v0.10.0.zip
+          tar xvzf exa-macos-x86_64-v0.10.0.zip
+          mkdir -p ${HOME}/.local/bin
+          mkdir -p ${HOME}/.local/man
+          mv exa-macos-x86_64-v0.10.0/bin/exa ${HOME}/.local/bin
+          mv exa-macos-x86_64-v0.10.0/man/* ${HOME}/.local/man
+          cd ..
+          rm -rf exa
+
+    - name: Install fd-find as local user (Linux)
+      when: use_root != true and ansible_facts['os_family'] != 'Darwin'
+      shell:
+        creates: "${HOME}/.local/bin/fd"
+        cmd: |
+          url=https://github.com/sharkdp/fd/releases/download/v8.6.0/fd-v8.6.0-x86_64-unknown-linux-gnu.tar.gz
+          pkg_name=fd-v8.6.0-x86_64-unknown-linux-gnu
+          wget $url 
+          tar xvzf ${pkg_name}.tar.gz
+          mkdir -p ${HOME}/.local/bin
+          mkdir -p ${HOME}/.local/man
+          mv ${pkg_name}/fd ${HOME}/.local/bin
+          mv ${pkg_name}/fd.1 ${HOME}/.local/man
+          rm -r ${pkg_name} ${pkg_name}.tar.gz
+    - name: Install fzf as local user (Linux)
+      when: use_root != true and ansible_facts['os_family'] != 'Darwin'
+      shell:
+        creates: "${HOME}/.local/bin/fzf"
+        cmd: |
+          url=https://github.com/junegunn/fzf.git
+          git clone $url
+          cd fzf
+          ./install --xdg --key-bindings --completion --update-rc
+          mv bin/* ${HOME}/.local/bin/
+          rm -rf ~/fzf
+
+    - name: Install rg as local user (Linux)
+      when: use_root != true and ansible_facts['os_family'] != 'Darwin'
+      shell:
+        creates: "${HOME}/.local/bin/rg"
+        cmd: |
+          url=https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
+          pkg_name=ripgrep-13.0.0-x86_64-unknown-linux-musl
+          wget $url 
+          tar xvzf ${pkg_name}.tar.gz
+          mkdir -p ${HOME}/.local/bin
+          mkdir -p ${HOME}/.local/man
+          mv ${pkg_name}/rg ${HOME}/.local/bin
+          mv ${pkg_name}/rg.1 ${HOME}/.local/man
+          rm -r ${pkg_name} ${pkg_name}.tar.gz
+
+    - name: Install yadm as local user (Linux or Darwin)
+      when: use_root != true 
+      shell:
+        creates: "${HOME}/.local/bin/yadm"
+        cmd: |
+          url=https://github.com/TheLocehiliosan/yadm/raw/master/yadm 
+          curl -fLo ${HOME}/.local/bin/yadm ${url} && chmod a+x ${HOME}/.local/bin/yadm
+
+    - name: Install starship prompt (root)
+      when: use_root == true
+      shell: 
+        creates: /usr/local/bin/starship 
+        cmd: curl -sS https://starship.rs/install.sh > install.sh; chmod u+x install.sh; ./install.sh -y; rm install.sh
+
+    - name: Install starship prompt (user)
+      when: use_root != true
+      shell: 
+        creates: ${HOME}/.local/bin/starship 
+        cmd: curl -sS https://starship.rs/install.sh > install.sh; chmod u+x install.sh; ./install.sh -y --bin-dir ${HOME}/.local/bin; rm install.sh
+
+
+- name: Bootstrap dotfiles
+  hosts: all
+  tasks:
+    - name: Remove old bashrc
+      shell:
+        cmd: rm -f ${HOME}/.bashrc
+    - name: Set up credentials for private repos
+      shell:
+        cmd: |
+          git config --global credential.helper store
+          git config --global credential.github.com.useHttpPath true
+          mkdir -p ~/.config/git
+    - name: Copy git credentials for private repos
+      copy:
+        src: ./files/.config/git/credentials
+        dest: .config/git/credentials
+        mode: 0600
+    - name: Clone dotfile repo
+      shell:
+        cmd: | 
+          export PATH=${HOME}/.local/bin:${PATH}
+          yadm clone https://github.com/pgierz/dots -f --no-bootstrap
+      timeout: 60
+    - name: Bootstrap dotfile repo
+      shell:
+        cmd: |
+          export PATH=${HOME}/.local/bin:${PATH}
+          yadm bootstrap 
+      timeout: 60
+    - name: Cleanup credentials
+      shell:
+        cmd: |
+          rm ~/.gitconfig
+          rm ~/.config/git/credentials
