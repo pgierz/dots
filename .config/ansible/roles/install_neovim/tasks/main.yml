@@ -1,0 +1,22 @@
+---
+- name: install neovim as root (Linux)
+  when: use_root == true
+  become: true
+  become_user: root
+  shell:
+    creates: /usr/local/bin/nvim
+    cmd: |
+      export PATH=${HOME}/.local/bin:${PATH}
+      wget https://github.com/neovim/neovim/releases/download/v0.8.1/nvim-linux64.tar.gz 
+      tar xvzf nvim-linux64.tar.gz -C /usr/local --strip-components=1
+      rm -rf nvim-linux64.tar.gz
+
+- name: install neovim as local user (Linux)
+  when: use_root != true
+  shell:
+    creates: ${HOME}/.local/bin/nvim
+    cmd: |
+      export PATH=${HOME}/.local/bin:${PATH}
+      wget https://github.com/neovim/neovim/releases/download/v0.8.1/nvim-linux64.tar.gz 
+      tar xvzf nvim-linux64.tar.gz -C ${HOME}/.local --strip-components=1
+      rm -rf nvim-linux64.tar.gz

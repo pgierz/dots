@@ -1,0 +1,24 @@
+---
+- name: Install via package manager (Linux as root)
+  when: use_root == true
+  become: true
+  become_user: root
+  package:
+    name:
+      - ripgrep
+    state: present
+
+- name: Install rg as local user (Linux)
+  when: use_root != true and ansible_facts['os_family'] != 'Darwin'
+  shell:
+    creates: "${HOME}/.local/bin/rg"
+    cmd: |
+      url=https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
+      pkg_name=ripgrep-13.0.0-x86_64-unknown-linux-musl
+      wget $url 
+      tar xvzf ${pkg_name}.tar.gz
+      mkdir -p ${HOME}/.local/bin
+      mkdir -p ${HOME}/.local/man
+      mv ${pkg_name}/rg ${HOME}/.local/bin
+      mv ${pkg_name}/rg.1 ${HOME}/.local/man
+      rm -r ${pkg_name} ${pkg_name}.tar.gz

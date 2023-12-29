@@ -1,0 +1,12 @@
+---
+- name: Bootstrap Cargo and Rust (Linux)
+  hosts: all
+  tasks:
+    - name: Download and Run Rustup
+      shell:
+        cmd: |
+          export RUSTUP_HOME="${XDG_DATA_HOME:=${HOME}/.local/share}"/rustup
+          export CARGO_HOME="${XDG_DATA_HOME:=${HOME}/.local/share}"/cargo
+          export PATH=${PATH}:${CARGO_HOME}/bin
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+          rm -rf ${HOME}/rustup-init

@@ -1,0 +1,16 @@
+---
+- name: Install yadm as local user (Linux or Darwin)
+  when: use_root != true
+  shell:
+    creates: "${HOME}/.local/bin/yadm"
+    cmd: |
+      url=https://github.com/TheLocehiliosan/yadm/raw/master/yadm 
+      curl -fLo ${HOME}/.local/bin/yadm ${url} && chmod a+x ${HOME}/.local/bin/yadm
+- name: Install via package manager (Linux as root)
+  when: use_root == true
+  become: true
+  become_user: root
+  package:
+    name:
+      - yadm
+    state: present

@@ -1,0 +1,21 @@
+---
+- name: Install ranger as local user (Linux)
+  when: use_root != true and ansible_facts['os_family'] != 'Darwin'
+  shell:
+    creates: ${HOME}/.local/bin/ranger
+    cmd: |
+      git clone https://github.com/ranger/ranger.git
+      cd ranger
+      export PREFIX=${HOME}/.local
+      make install
+      cd ..
+      rm -rf ranger
+
+- name: Install via package manager (as root)
+  when: use_root == true
+  become: true
+  become_user: root
+  package:
+    name:
+      - ranger
+    state: present

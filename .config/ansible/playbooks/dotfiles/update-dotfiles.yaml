@@ -1,0 +1,9 @@
+---
+- name: Update dotfiles
+  hosts: all
+  tasks:
+    - name: Pull Dotfiles
+      shell:
+        cmd: |
+          export PATH=${HOME}/.local/bin:${PATH}
+          yadm pull

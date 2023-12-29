@@ -1,0 +1,12 @@
+---
+- name: Install starship prompt (root)
+  when: use_root == true
+  shell:
+    creates: /usr/local/bin/starship
+    cmd: curl -sS https://starship.rs/install.sh > install.sh; chmod u+x install.sh; ./install.sh -y; rm install.sh
+
+- name: Install starship prompt (user)
+  when: use_root != true
+  shell:
+    creates: ${HOME}/.local/bin/starship
+    cmd: curl -sS https://starship.rs/install.sh > install.sh; chmod u+x install.sh; ./install.sh -y --bin-dir ${HOME}/.local/bin; rm install.sh

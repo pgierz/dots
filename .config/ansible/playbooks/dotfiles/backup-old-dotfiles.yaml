@@ -1,0 +1,17 @@
+- name: Create backup folder and move dotfiles
+  hosts: all
+  gather_facts: true
+  vars:
+    backup_dir: "{{ ansible_env.HOME }}/dotfile_backup_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}{{ ansible_date_time.minute }}{{ ansible_date_time.second }}"
+  roles:
+    - find_dotfiles
+  tasks:
+    - name: Create backup directory
+      file:
+        path: "{{ backup_dir }}"
+        state: directory
+        mode: "0700"
+
+    - name: Move dotfiles to backup directory
+      shell: "mv {{ item.path }} {{ backup_dir }}/"
+      loop: "{{ dotfiles.files }}"

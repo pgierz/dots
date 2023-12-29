@@ -1,0 +1,11 @@
+---
+- name: Find and print dotfiles in remote HOME folders
+  hosts: all
+  gather_facts: true
+  roles:
+    - find_dotfiles
+  tasks:
+    - name: Print dotfiles
+      debug:
+        msg: "{{ item.path }}"
+      loop: "{{ dotfiles.files }}"
