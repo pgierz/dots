@@ -1,0 +1,3 @@
+.config/gh/hosts.yml
+.netrc
+.local/share/ansible/ansible-vault.secret

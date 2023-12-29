@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+"""
+This script automatically is called whenever you do a YADM push. It allows to
+deploy the configuration to any supported host automatically.
+"""
+
+import pathlib
+import sys
+
+
+def main():
+    print(f"YADM: Post-Push Hook using Python {sys.executable}")
+    hosts = pathlib.Path.home() / ".config/ansible/hosts.yaml"
+    if hosts.exists():
+        print(f"Using {hosts=}")
+    # import ansible_runner
+
+    # ansible_runner.run(
+    #     playbook=pathlib.Path.home() / ".local/share/ansible/dotfiles.yaml"
+    # )
+
+
+if __name__ == "__main__":
+    main()
+
+# vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4 syntax=python
