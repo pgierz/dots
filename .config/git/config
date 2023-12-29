@@ -1,6 +1,7 @@
 [user]
 	email = pgierz@awi.de
 	name = Paul Gierz
+	signingkey = A987ADED66FC83B7BE76962FFA2EA2346375F7BB
 [init]
 	defaultBranch = master
 [filter "lfs"]
@@ -17,7 +18,7 @@
 ; 	helper = 
 ; 	helper = !/usr/local/bin/gh auth git-credential
 [commit]
-	gpgsign = true
+	gpgSign = true
 [alias]
   lol = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' 
 
