@@ -1,7 +1,9 @@
 [user]
-	email = pgierz@awi.de
 	name = Paul Gierz
+  email = pgierz@mac.com
 	signingkey = A987ADED66FC83B7BE76962FFA2EA2346375F7BB
+  ; email = pgierz@awi.de
+  ; signingkey = 643A28F029DBA597BD27A7600658A3B08D9CDDEC
 [init]
 	defaultBranch = master
 [filter "lfs"]
