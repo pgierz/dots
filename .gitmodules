@@ -23,3 +23,12 @@
 [submodule ".local/share/password-store"]
 	path = .local/share/password-store
 	url = https://github.com/pgierz/pass.git
+[submodule ".config/kitty/catpuccin"]
+	path = .config/kitty/catpuccin
+	url = https://github.com/catppuccin/kitty.git
+[submodule ".config/tmux/tpm"]
+	path = .config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule ".config/bat/themes/bat"]
+	path = .config/bat/themes/bat
+	url = https://github.com/catppuccin/bat.git

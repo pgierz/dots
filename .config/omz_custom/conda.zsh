@@ -1,7 +1,7 @@
 export CONDARC="${XDG_CONFIG_HOME:=${HOME}/.config}/conda/.condarc"
 
 case $(hostname) in
-  *bkli04m034* | vpn-*.awi.de )
+  *bkli04m034* | vpn-*.awi.de | Pauls-MacBook-Air.local )
     # >>> conda initialize >>>
     # !! Contents within this block are managed by 'conda init' !!
     __conda_setup="$('/usr/local/Caskroom/mambaforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"

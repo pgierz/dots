@@ -1,1 +1,1 @@
-export BAT_THEME=Dracula
+export BAT_THEME=Catppuccin-macchiato

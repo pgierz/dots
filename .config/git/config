@@ -24,5 +24,9 @@
 [alias]
   lol = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' 
 
+[includeIf "gitdir:~/Code/github.com/"]
+  path = ~/.config/git/github.com
+[includeIf "gitdir:~/Code/gitlab.dkrz.de/"]
+  path = ~/.config/git/gitlab.awi.de
 [includeIf "gitdir:~/Code/gitlab.awi.de/"]
-  path = ~/Code/gitlab.awi.de/.gitconfig
+  path = ~/.config/git/gitlab.awi.de

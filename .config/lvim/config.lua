@@ -7,6 +7,7 @@
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
 lvim.colorscheme = "catppuccin-macchiato"
+-- lvim.colorscheme = "catppuccin-latte"
 lvim.transparent_window = true
 vim.wo.relativenumber = true
 
@@ -19,6 +20,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "yaml",
   "python",
   "r",
+  "ruby",
+  "go"
 }
 lvim.builtin.treesitter.highlight.enable = true
 
@@ -36,6 +39,10 @@ formatters.setup {
     command = "prettier",
     filetypes = { "yaml", "json" },
   },
+  {
+    command = "rubocop",
+    filetypes = { "ruby" }
+  }
 }
 
 local linters = require "lvim.lsp.null-ls.linters"
@@ -48,18 +55,19 @@ linters.setup {
 -- Additional Plugins
 lvim.plugins = {
   { "christoomey/vim-tmux-navigator", lazy = false },
-  { "catppuccin/nvim",                as = "catppuccin" },
+  { "catppuccin/nvim",                name = "catppuccin" },
   { "dracula/vim" },
   { "github/copilot.vim" },
   {
     "jackMort/ChatGPT.nvim",
     config = function()
       require("chatgpt").setup({
+        api_key_cmd = "pass api_keys/openai.com/nvim_integration"
         -- api_key_command = "gpg --decrypt ~/.local/share/password-store/tokens/chatgpt.gpg 2>/dev/null",
       }
       )
     end,
-    requires = {
+    dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"

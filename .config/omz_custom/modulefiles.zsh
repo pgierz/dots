@@ -3,6 +3,9 @@ case $(hostname) in
     # Allow modulefiles on MacBook
     source /usr/local/opt/modules/init/zsh
     ;;
+  Pauls-MacBook-Air.local)
+    source /opt/homebrew/opt/modules/init/zsh
+    ;;
   *)
     echo "No modulefile setup for $(hostname)"
     ;;
