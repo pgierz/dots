@@ -2,3 +2,4 @@
 if [ -f ${HOME}/.bashrc ]; then
 	source ${HOME}/.bashrc
 fi
+. "/Users/pgierz/.local/share/cargo/env"
