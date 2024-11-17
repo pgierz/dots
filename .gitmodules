@@ -32,3 +32,6 @@
 [submodule ".config/bat/themes/bat"]
 	path = .config/bat/themes/bat
 	url = https://github.com/catppuccin/bat.git
+[submodule ".config/omz_custom/plugins/zsh-vim-mode"]
+	path = .config/omz_custom/plugins/zsh-vim-mode
+	url = https://github.com/softmoth/zsh-vim-mode.git
