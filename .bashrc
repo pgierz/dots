@@ -134,4 +134,6 @@ eval "$(starship init bash)"
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
-. "/Users/pgierz/.local/share/cargo/env"
+if [ -f ${HOME}/.local/share/cargo/env ]; then
+  . "${HOME}/.local/share/cargo/env"
+fi
