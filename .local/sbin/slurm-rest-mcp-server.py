@@ -434,6 +434,168 @@ async def slurm_list_licenses() -> str:
 
 
 # ---------------------------------------------------------------------------
+# MCP Tools — Example job templates
+# ---------------------------------------------------------------------------
+
+
+@mcp.tool()
+async def slurm_submit_ollama_server(
+    model: str = "llama3.1:8b",
+    account: str | None = None,
+    partition: str | None = None,
+    gpus: int = 1,
+    cpus: int = 4,
+    memory_gb: int = 32,
+    time_limit_hours: int = 8,
+    ollama_host: str = "0.0.0.0",
+    ollama_port: int = 11434,
+    ollama_data_dir: str | None = None,
+) -> str:
+    """Submit a persistent Ollama LLM server as a Slurm job.
+
+    Starts an Ollama server on a compute node, pulls the requested model,
+    and keeps it running for the specified duration. The server is accessible
+    from other nodes at http://<allocated-node>:<ollama_port>.
+
+    Args:
+        model: Ollama model to pull and serve (default: "llama3.1:8b").
+               Examples: "llama3.1:70b", "codellama:34b", "mistral", "phi3",
+               "deepseek-coder-v2", "gemma2:27b".
+        account: Slurm account to charge.
+        partition: Target partition (should have GPU nodes for best performance).
+        gpus: Number of GPUs to request (default: 1).
+        cpus: Number of CPU cores (default: 4).
+        memory_gb: Memory in GB (default: 32).
+        time_limit_hours: How long to keep the server running in hours (default: 8).
+        ollama_host: Bind address for the Ollama server (default: "0.0.0.0").
+        ollama_port: Port for the Ollama API (default: 11434).
+        ollama_data_dir: Custom directory for Ollama model storage.
+                         Defaults to $HOME/.ollama inside the job.
+    """
+    data_dir = ollama_data_dir or "$HOME/.ollama"
+
+    script = f"""#!/bin/bash
+#
+# Ollama LLM Server — Slurm Batch Job
+# Submitted via slurm-rest-mcp-server
+#
+# Access the running server:
+#   export OLLAMA_HOST=http://$(hostname):{ollama_port}
+#   curl $OLLAMA_HOST/api/tags
+#
+set -euo pipefail
+
+echo "=== Ollama Slurm Job ==="
+echo "Node:      $(hostname)"
+echo "GPUs:      ${{SLURM_GPUS_ON_NODE:-{gpus}}}"
+echo "Model:     {model}"
+echo "Data dir:  {data_dir}"
+echo "API:       http://$(hostname):{ollama_port}"
+echo "Job ID:    $SLURM_JOB_ID"
+echo "========================"
+
+# --- Set up environment ---
+export OLLAMA_HOST="{ollama_host}:{ollama_port}"
+export OLLAMA_MODELS="{data_dir}/models"
+mkdir -p "{data_dir}/models"
+
+# --- Install Ollama if not available ---
+if ! command -v ollama &>/dev/null; then
+    echo "Ollama not found in PATH, installing to user-local directory..."
+    export OLLAMA_INSTALL_DIR="${{HOME}}/.local/bin"
+    mkdir -p "$OLLAMA_INSTALL_DIR"
+    curl -fsSL https://ollama.com/install.sh | sh
+    export PATH="${{OLLAMA_INSTALL_DIR}}:${{PATH}}"
+fi
+
+echo "Using ollama at: $(command -v ollama)"
+echo "Ollama version: $(ollama --version)"
+
+# --- Start the Ollama server in the background ---
+echo "Starting Ollama server..."
+ollama serve &
+OLLAMA_PID=$!
+
+# Wait for server to be ready
+for i in $(seq 1 30); do
+    if curl -sf "http://localhost:{ollama_port}/api/tags" >/dev/null 2>&1; then
+        echo "Ollama server is ready."
+        break
+    fi
+    echo "Waiting for server to start... ($i/30)"
+    sleep 2
+done
+
+# --- Pull the requested model ---
+echo "Pulling model: {model}"
+ollama pull {model}
+echo "Model ready."
+
+# --- Write connection info for other jobs/users ---
+CONNECTION_FILE="${{HOME}}/.ollama-slurm-${{SLURM_JOB_ID}}.env"
+cat > "$CONNECTION_FILE" <<CONN
+# Source this file to connect to the Ollama server:
+#   source $CONNECTION_FILE
+export OLLAMA_HOST="http://$(hostname):{ollama_port}"
+export OLLAMA_JOB_ID=$SLURM_JOB_ID
+export OLLAMA_NODE=$(hostname)
+export OLLAMA_MODEL={model}
+CONN
+echo "Connection info written to: $CONNECTION_FILE"
+
+# --- Keep the server running until the job ends ---
+echo "Ollama server running. Waiting for job time limit or cancellation..."
+echo "To use from another node:"
+echo "  export OLLAMA_HOST=http://$(hostname):{ollama_port}"
+echo "  ollama run {model}"
+echo ""
+echo "To use via API:"
+echo "  curl http://$(hostname):{ollama_port}/api/generate -d '{{\\"model\\": \\"{model}\\", \\"prompt\\": \\"Hello\\"}}'"
+echo ""
+
+# Wait for the server process (runs until SIGTERM from Slurm)
+wait $OLLAMA_PID
+"""
+
+    job: dict[str, Any] = {
+        "name": f"ollama-{model.replace(':', '-').replace('/', '-')}",
+        "environment": [
+            "PATH=/usr/local/bin:/usr/bin:/bin",
+            f"OLLAMA_HOST={ollama_host}:{ollama_port}",
+            f"OLLAMA_MODELS={data_dir}/models",
+        ],
+    }
+
+    if account:
+        job["account"] = account
+    if partition:
+        job["partition"] = partition
+    if cpus:
+        job["cpus_per_task"] = cpus
+    if memory_gb:
+        job["memory_per_node"] = {"number": memory_gb * 1024, "set": True}
+    if time_limit_hours:
+        job["time_limit"] = {"number": time_limit_hours * 60, "set": True}
+    if gpus:
+        job["tres_per_node"] = f"gres/gpu:{gpus}"
+
+    payload = {"script": script, "job": job}
+    data = await _post(_url("job/submit"), payload)
+
+    result = {
+        "submission": data,
+        "usage_hint": (
+            f"Once running, source ~/.ollama-slurm-<job_id>.env or use:\n"
+            f"  export OLLAMA_HOST=http://<node>:{ollama_port}\n"
+            f"  ollama run {model}\n"
+            f"  curl http://<node>:{ollama_port}/api/generate "
+            f'-d \'{{"model": "{model}", "prompt": "Hello"}}\''
+        ),
+    }
+    return _fmt(result)
+
+
+# ---------------------------------------------------------------------------
 # MCP Prompts — reusable prompt templates
 # ---------------------------------------------------------------------------
 
@@ -454,6 +616,28 @@ def job_submission_helper(description: str) -> str:
         "3. Write the batch script\n"
         "4. Use slurm_submit_job to submit it\n\n"
         "Ask the user for any missing details (account, partition preference, etc.)."
+    )
+
+
+@mcp.prompt()
+def ollama_server_setup(model: str = "llama3.1:8b") -> str:
+    """Guide the user through launching a persistent Ollama LLM server on the cluster.
+
+    Args:
+        model: The Ollama model to serve (default: "llama3.1:8b").
+    """
+    return (
+        f"The user wants to run a persistent Ollama server with model '{model}' on the Slurm cluster.\n\n"
+        "Please help by:\n"
+        "1. Run slurm_list_partitions to find a partition with GPU nodes\n"
+        "2. Run slurm_list_nodes with state='idle' to check available GPU nodes\n"
+        "3. Recommend appropriate resources based on the model size:\n"
+        "   - 7-8B models: 1 GPU, 16-32GB RAM, 4 CPUs\n"
+        "   - 13-34B models: 1-2 GPUs, 32-64GB RAM, 8 CPUs\n"
+        "   - 70B+ models: 2-4 GPUs, 128GB+ RAM, 16 CPUs\n"
+        "4. Use slurm_submit_ollama_server with the chosen settings\n"
+        "5. Show the user how to connect once the job is running\n\n"
+        "Ask the user for their account and preferred partition if not obvious."
     )
 
 
