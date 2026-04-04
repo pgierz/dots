@@ -223,16 +223,16 @@ async def slurm_submit_job(
     time_limit_minutes: int | None = None,
     working_directory: str | None = None,
     modules: list[str] | None = None,
+    environment: list[str] | None = None,
 ) -> str:
-    """Submit a batch job to the Slurm cluster.
+    """Submit a batch job to the Slurm cluster via the REST API.
 
-    The script body you provide will be placed *after* an auto-generated
-    ``#SBATCH`` header and ``module load`` block. Do NOT include a shebang
-    or ``#SBATCH`` lines in the script argument — they are built from the
-    other parameters.
+    Resource requests are passed through the API's JSON job description,
+    not as #SBATCH directives. The script should contain only the shell
+    commands to run (a shebang and module loads are prepended automatically).
 
     Args:
-        script: Shell commands to execute (the job body, no shebang needed).
+        script: Shell commands to execute (the job body).
         job_name: Name for the job (default: "mcp-submitted-job").
         account: Slurm account to charge.
         partition: Target partition/queue name.
@@ -241,38 +241,35 @@ async def slurm_submit_job(
         time_limit_minutes: Wall-clock time limit in minutes.
         working_directory: Working directory for the job.
         modules: Lmod modules to load (e.g. ["python/3.11", "cuda/12"]).
+        environment: List of "KEY=VALUE" environment variable strings.
     """
-    # --- Build #SBATCH header ---
-    sbatch_lines = [
-        f"#SBATCH --job-name={job_name}",
-        f"#SBATCH --output={job_name}-%j.out",
-    ]
-    if account:
-        sbatch_lines.append(f"#SBATCH --account={account}")
-    if partition:
-        sbatch_lines.append(f"#SBATCH --partition={partition}")
-    if nodes:
-        sbatch_lines.append(f"#SBATCH --nodes={nodes}")
-    if ntasks:
-        sbatch_lines.append(f"#SBATCH --ntasks={ntasks}")
-    if time_limit_minutes:
-        hours, mins = divmod(time_limit_minutes, 60)
-        sbatch_lines.append(f"#SBATCH --time={hours}:{mins:02d}:00")
-    if working_directory:
-        sbatch_lines.append(f"#SBATCH --chdir={working_directory}")
-
-    sbatch_header = "\n".join(sbatch_lines)
-
-    # --- Build module block ---
+    # Build the script with shebang + module loads
     module_block = "module purge\n"
     if modules:
         module_block += "\n".join(f"module load {m}" for m in modules)
+
+    full_script = f"#!/bin/bash\nset -euo pipefail\n\n{module_block}\n\n{script}\n"
+
+    # Build the job resource description for the REST API
+    job: dict[str, Any] = {"name": job_name}
+    if account:
+        job["account"] = account
+    if partition:
+        job["partition"] = partition
+    if nodes:
+        job["minimum_nodes"] = nodes
+    if ntasks:
+        job["ntasks"] = ntasks
+    if time_limit_minutes:
+        job["time_limit"] = {"number": time_limit_minutes, "set": True}
+    if working_directory:
+        job["current_working_directory"] = working_directory
+    if environment:
+        job["environment"] = environment
     else:
-        module_block += "# (no modules requested)"
+        job["environment"] = ["PATH=/usr/local/bin:/usr/bin:/bin"]
 
-    full_script = f"#!/bin/bash\n{sbatch_header}\n\n{module_block}\n\n{script}\n"
-
-    payload = {"script": full_script, "job": {"name": job_name}}
+    payload = {"script": full_script, "job": job}
     data = await _post(_url("job/submit"), payload)
     return _fmt(data)
 
@@ -490,45 +487,21 @@ async def slurm_submit_ollama_server(
     """
     data_dir = ollama_data_dir or "$HOME/.ollama"
     job_name = f"ollama-{model.replace(':', '-').replace('/', '-')}"
-    time_fmt = f"{time_limit_hours}:00:00"
 
-    # Build #SBATCH header lines
-    sbatch_lines = [
-        f"#SBATCH --job-name={job_name}",
-        f"#SBATCH --output=ollama-{job_name}-%j.out",
-        f"#SBATCH --ntasks=1",
-        f"#SBATCH --cpus-per-task={cpus}",
-        f"#SBATCH --mem={memory_gb}G",
-        f"#SBATCH --time={time_fmt}",
-        f"#SBATCH --gres=gpu:{gpus}",
-    ]
-    if account:
-        sbatch_lines.append(f"#SBATCH --account={account}")
-    if partition:
-        sbatch_lines.append(f"#SBATCH --partition={partition}")
-
-    sbatch_header = "\n".join(sbatch_lines)
-
+    # Script is just the job body — resource requests go through the API
     script = f"""#!/bin/bash
-{sbatch_header}
-#
-# Ollama LLM Server — Slurm Batch Job
-# Submitted via slurm-rest-mcp-server
-#
 set -euo pipefail
 
-# --- Environment modules ---
 module purge
 module load ollama
 
-# --- Configuration ---
 export OLLAMA_HOST="{ollama_host}:{ollama_port}"
 export OLLAMA_MODELS="{data_dir}/models"
 mkdir -p "{data_dir}/models"
 
 echo "=== Ollama Slurm Job ==="
 echo "Node:      $(hostname)"
-echo "GPUs:      ${{SLURM_GPUS_ON_NODE:-{gpus}}}"
+echo "GPUs:      ${{SLURM_GPUS_ON_NODE:-n/a}}"
 echo "Model:     {model}"
 echo "Data dir:  {data_dir}"
 echo "API:       http://$(hostname):{ollama_port}"
@@ -536,7 +509,6 @@ echo "Job ID:    $SLURM_JOB_ID"
 echo "Ollama:    $(command -v ollama) ($(ollama --version))"
 echo "========================"
 
-# --- Start the Ollama server in the background ---
 ollama serve &
 OLLAMA_PID=$!
 
@@ -548,33 +520,44 @@ for i in $(seq 1 30); do
     sleep 2
 done
 
-# --- Pull the requested model ---
 echo "Pulling model: {model}"
 ollama pull {model}
 echo "Model ready."
 
-# --- Write connection info for other jobs/users ---
 CONNECTION_FILE="${{HOME}}/.ollama-slurm-${{SLURM_JOB_ID}}.env"
 cat > "$CONNECTION_FILE" <<CONN
-# Source this file to connect to the Ollama server:
-#   source \\$CONNECTION_FILE
 export OLLAMA_HOST="http://$(hostname):{ollama_port}"
 export OLLAMA_JOB_ID=$SLURM_JOB_ID
 export OLLAMA_NODE=$(hostname)
 export OLLAMA_MODEL={model}
 CONN
-echo "Connection info written to: $CONNECTION_FILE"
+echo "Connection info: $CONNECTION_FILE"
 
-# --- Keep running until Slurm kills us ---
 echo ""
 echo "Server listening on http://$(hostname):{ollama_port}"
-echo "  ollama run {model}"
-echo "  curl http://$(hostname):{ollama_port}/api/generate -d '{{\\"model\\": \\"{model}\\", \\"prompt\\": \\"Hello\\"}}'"
-echo ""
 wait $OLLAMA_PID
 """
 
-    payload = {"script": script, "job": {"name": job_name}}
+    # Resource requests via the REST API JSON payload
+    job: dict[str, Any] = {
+        "name": job_name,
+        "ntasks": 1,
+        "cpus_per_task": cpus,
+        "memory_per_node": {"number": memory_gb * 1024, "set": True},
+        "time_limit": {"number": time_limit_hours * 60, "set": True},
+        "tres_per_node": f"gres/gpu:{gpus}",
+        "environment": [
+            "PATH=/usr/local/bin:/usr/bin:/bin",
+            f"OLLAMA_HOST={ollama_host}:{ollama_port}",
+            f"OLLAMA_MODELS={data_dir}/models",
+        ],
+    }
+    if account:
+        job["account"] = account
+    if partition:
+        job["partition"] = partition
+
+    payload = {"script": script, "job": job}
     data = await _post(_url("job/submit"), payload)
 
     result = {
@@ -582,9 +565,7 @@ wait $OLLAMA_PID
         "usage_hint": (
             f"Once running, source ~/.ollama-slurm-<job_id>.env or use:\n"
             f"  export OLLAMA_HOST=http://<node>:{ollama_port}\n"
-            f"  ollama run {model}\n"
-            f"  curl http://<node>:{ollama_port}/api/generate "
-            f'-d \'{{"model": "{model}", "prompt": "Hello"}}\''
+            f"  ollama run {model}"
         ),
     }
     return _fmt(result)
